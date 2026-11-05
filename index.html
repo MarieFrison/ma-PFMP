@@ -1,0 +1,1174 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ma 1ère PFMP</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="1CAP EPC – Je prépare ma 1ère PFMP à partir de mon vrai lieu de stage.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Caveat:wght@700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* Layout : affiche PFMP du lycée — bandes pastel numérotées, pastilles de titre, post-it manuscrits ; colonne de 1000px */
+:root{
+  --bg:#f4f7ff; --surface:#ffffff; --ink:#1f2a48; --muted:#5b6585; --line:#e2e7f3;
+  --navy:#1f3a7a; --sun:#ffd23f; --sun-ink:#4a3600;
+  --pink:#e5467b; --pink-s:#fde3ee; --blue:#2f7de1; --blue-s:#e0edff; --green:#24a058; --green-s:#ddf4e6;
+  --orange:#f2851d; --orange-s:#ffeedb; --purple:#7a4fd8; --purple-s:#ece4ff; --teal:#0f9da3; --teal-s:#d9f4f4;
+  --ok:#1f9152; --ok-s:#dcf5e6; --ko:#d63a5e; --ko-s:#fde3e9; --focus:#2f7de1;
+  --f-display:"Baloo 2","Trebuchet MS",system-ui,sans-serif;
+  --f-body:"Atkinson Hyperlegible",Verdana,system-ui,sans-serif;
+  --f-hand:"Caveat","Comic Sans MS",cursive;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121829; --surface:#1b2440; --ink:#eef1fa; --muted:#a9b2cc; --line:#2d3961;
+  --navy:#9db8ff; --sun:#ffd23f; --sun-ink:#3a2a00;
+  --pink:#ff6f9b; --pink-s:#3b1e2c; --blue:#6aa6ff; --blue-s:#1b2c4d; --green:#4fcd86; --green-s:#173527;
+  --orange:#ffa24d; --orange-s:#3b2915; --purple:#a888ff; --purple-s:#2a2148; --teal:#41cfd4; --teal-s:#143436;
+  --ok:#4fcd86; --ok-s:#173527; --ko:#ff7d98; --ko-s:#3d1c27; --focus:#6aa6ff; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121829; --surface:#1b2440; --ink:#eef1fa; --muted:#a9b2cc; --line:#2d3961;
+  --navy:#9db8ff; --sun:#ffd23f; --sun-ink:#3a2a00;
+  --pink:#ff6f9b; --pink-s:#3b1e2c; --blue:#6aa6ff; --blue-s:#1b2c4d; --green:#4fcd86; --green-s:#173527;
+  --orange:#ffa24d; --orange-s:#3b2915; --purple:#a888ff; --purple-s:#2a2148; --teal:#41cfd4; --teal-s:#143436;
+  --ok:#4fcd86; --ok-s:#173527; --ko:#ff7d98; --ko-s:#3d1c27; --focus:#6aa6ff; color-scheme:dark}
+.c-pink{--c:var(--pink);--cs:var(--pink-s)} .c-blue{--c:var(--blue);--cs:var(--blue-s)} .c-green{--c:var(--green);--cs:var(--green-s)}
+.c-orange{--c:var(--orange);--cs:var(--orange-s)} .c-purple{--c:var(--purple);--cs:var(--purple-s)} .c-teal{--c:var(--teal);--cs:var(--teal-s)}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55;
+  background-image:radial-gradient(circle at 8% 0%,var(--blue-s) 0,transparent 32%),radial-gradient(circle at 95% 12%,var(--pink-s) 0,transparent 28%);background-attachment:fixed}
+h1,h2,h3{font-family:var(--f-display);line-height:1.12;text-wrap:balance;margin:0;color:var(--navy)}
+h2{font-size:1.9rem} h3{font-size:1.25rem}
+p{margin:0}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.wrap{max-width:1000px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.muted{color:var(--muted)} .small{font-size:.9rem}
+.stack{display:flex;flex-direction:column;gap:14px}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.hand{font-family:var(--f-hand);font-weight:700}
+.pill{display:inline-block;border-radius:14px;padding:0 .35em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hl{background:linear-gradient(transparent 55%,var(--sun) 55%,var(--sun) 88%,transparent 88%)}
+
+/* En-tête affiche */
+.top .wrap{padding-block:22px 10px}
+.brand{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center}
+.brand > *{min-width:0}
+.logo{font-family:var(--f-display);line-height:1.05;color:var(--navy);font-weight:800;font-size:.95rem}
+.logo small{display:block;font-weight:600;font-size:.75rem;letter-spacing:.08em;color:var(--muted)}
+.title{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.title h1{font-size:clamp(2rem,6vw,3.2rem);font-weight:800;background:var(--blue-s);border-radius:18px;padding:0 18px;transform:rotate(-1.5deg)}
+.title .sub{font-family:var(--f-display);font-weight:800;font-size:clamp(1.05rem,3vw,1.45rem);background:var(--sun);color:var(--sun-ink);border-radius:999px;padding:2px 18px;transform:rotate(1deg)}
+.title .dates{font-family:var(--f-display);font-weight:700;background:var(--pink);color:#fff;border-radius:999px;padding:2px 16px;font-size:1rem}
+.cap{background:var(--teal);color:#fff;font-family:var(--f-display);font-weight:800;font-size:1.6rem;border-radius:14px;padding:2px 14px;transform:rotate(3deg);text-align:center;line-height:1.2}
+.cap small{display:block;font-size:.72rem;font-weight:700;letter-spacing:.04em}
+nav.tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:18px;padding:6px;background:var(--surface);border:2px solid var(--line);border-radius:26px}
+nav.tabs button{flex:none;background:none;border:0;color:var(--ink);padding:8px 16px;border-radius:999px;font-family:var(--f-display);font-weight:700;font-size:1rem;white-space:nowrap}
+nav.tabs button[aria-current="true"]{background:var(--navy);color:var(--surface)}
+.hud{display:flex;align-items:center;gap:8px;font-family:var(--f-display);font-weight:700;font-size:.95rem}
+.hud .dots{display:flex;gap:4px}
+.hud .dots i{width:22px;height:26px;border-radius:6px;background:var(--line);display:grid;place-items:center;font-style:normal;font-size:.9rem;color:var(--sun-ink)}
+.hud .dots i.on{background:var(--sun)}
+
+main .wrap{padding-block:18px 60px}
+.view{display:flex;flex-direction:column;gap:22px}
+.card{background:var(--surface);border:2px solid var(--line);border-radius:22px;padding:22px}
+.band{border-radius:24px;padding:22px;background:var(--cs);display:flex;flex-direction:column;gap:14px}
+.band h3{color:var(--c)}
+.eyebrow{font-size:.8rem;letter-spacing:.09em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+.sticky{background:var(--sun);color:var(--sun-ink);font-family:var(--f-hand);font-weight:700;font-size:1.45rem;line-height:1.1;padding:14px 16px;border-radius:6px;transform:rotate(-3deg);box-shadow:0 6px 14px rgba(31,42,72,.15);max-width:220px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:11px 22px;font-family:var(--f-display);font-weight:800;font-size:1.05rem;background:var(--navy);color:var(--surface);min-height:48px;box-shadow:0 4px 0 rgba(0,0,0,.18);transition:transform .1s}
+.btn:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(0,0,0,.18)}
+.btn.gold{background:var(--sun);color:var(--sun-ink)}
+.btn.ghost{background:var(--surface);color:var(--ink);border:2px solid var(--line);box-shadow:none}
+.btn.danger{background:var(--ko);color:#fff}
+.btn.col{background:var(--c);color:#fff}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.say{background:var(--surface);border:2px solid var(--line);border-radius:999px;padding:4px 12px;font-size:.9rem;font-weight:700;color:var(--ink);min-height:36px}
+.ico{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* Accueil */
+.hero{display:grid;grid-template-columns:1.35fr 1fr;gap:26px;align-items:center}
+.hero > *{min-width:0}
+.story{display:flex;flex-direction:column;gap:12px;font-size:1.08rem}
+.story h2{font-size:2.1rem}
+.avatar-hero{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px}
+.avatar-hero .stage{position:relative;width:min(260px,72vw);aspect-ratio:1/1.05;max-width:100%;border-radius:50%;background:conic-gradient(var(--pink-s),var(--blue-s),var(--green-s),var(--sun),var(--orange-s),var(--purple-s),var(--pink-s));display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+.avatar-hero .stage svg{width:78%;height:auto;margin-bottom:-4%}
+.bubble{position:relative;background:var(--surface);border:3px solid var(--navy);border-radius:20px;padding:10px 14px;font-family:var(--f-hand);font-weight:700;font-size:1.35rem;line-height:1.15;color:var(--navy)}
+.avatar-hero .bubble{margin-bottom:4px}
+.avatar-hero .bubble::after{content:"";position:absolute;bottom:-12px;left:46%;width:18px;height:18px;background:var(--surface);border-right:3px solid var(--navy);border-bottom:3px solid var(--navy);transform:rotate(45deg)}
+.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.lvl{border-radius:20px;padding:16px;background:var(--cs);display:flex;flex-direction:column;gap:6px;border:3px solid transparent;text-align:left;color:var(--ink)}
+.lvl .lh{display:flex;align-items:center;gap:10px}
+.lvl .lh span.ic{width:44px;height:44px;border-radius:50%;background:var(--c);color:#fff;display:grid;place-items:center;flex:none}
+.lvl b{font-family:var(--f-display);font-size:1.25rem;color:var(--c)}
+button.lvl:hover{border-color:var(--c)}
+.pips{display:inline-flex;gap:3px}
+.pip{width:12px;height:12px;border-radius:50%;background:var(--line)}
+.pip.on{background:var(--sun)}
+.link-pdf{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.link-pdf div{border-radius:18px;padding:14px;background:var(--cs);font-size:.95rem;display:flex;flex-direction:column;gap:4px}
+.link-pdf b{font-family:var(--f-display);color:#fff;background:var(--c);border-radius:999px;padding:0 12px;align-self:flex-start;font-size:1.05rem}
+
+/* Étapes */
+.tags{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tag{position:relative;text-align:left;background:var(--cs);border:3px solid transparent;border-radius:24px;padding:18px;display:flex;flex-direction:column;gap:8px;min-height:200px;color:var(--ink);transition:transform .15s,border-color .15s}
+.tag:not(.locked):hover{transform:translateY(-3px) rotate(-.5deg);border-color:var(--c)}
+.tag .th{display:flex;justify-content:space-between;align-items:center}
+.tag .num{width:52px;height:52px;border-radius:50%;background:var(--c);color:#fff;font-family:var(--f-display);font-weight:800;font-size:1.7rem;display:grid;place-items:center}
+.tag .pic{width:52px;height:52px;border-radius:16px;background:var(--surface);color:var(--c);display:grid;place-items:center}
+.tag h3{font-size:1.3rem;color:var(--c)}
+.tag .pdf{font-size:.88rem;color:var(--muted)}
+.tag .digit{margin-top:auto;display:flex;justify-content:space-between;align-items:center;font-size:.92rem;font-weight:700}
+.tag .digit b{font-family:var(--f-display);font-size:1.9rem;background:var(--sun);color:var(--sun-ink);border-radius:10px;width:46px;text-align:center;transform:rotate(6deg);box-shadow:0 3px 0 rgba(0,0,0,.15)}
+.tag .digit b.q{background:var(--surface);color:var(--muted);transform:none;box-shadow:none}
+.tag.done{border-color:var(--c)}
+.tag.done::after{content:"Réussie !";position:absolute;top:-12px;right:18px;background:var(--ok);color:#fff;font-family:var(--f-display);font-weight:800;border-radius:999px;padding:0 12px;font-size:.9rem}
+.tag.locked{opacity:.55;cursor:not-allowed;filter:saturate(.6)}
+
+/* Mission */
+.mhead{border-radius:24px;padding:18px 20px;background:var(--cs);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+.mhead .mt{display:flex;gap:14px;align-items:center;min-width:0}
+.mhead .num{width:58px;height:58px;border-radius:50%;background:var(--c);color:#fff;font-family:var(--f-display);font-weight:800;font-size:1.9rem;display:grid;place-items:center;flex:none}
+.mhead h2{color:var(--c);font-size:1.6rem}
+.progress{height:14px;background:var(--surface);border:2px solid var(--line);border-radius:999px;overflow:hidden}
+.progress i{display:block;height:100%;background:var(--c);width:0;transition:width .4s;border-radius:999px}
+.qcard{background:var(--surface);border:3px solid var(--line);border-radius:24px;padding:22px;display:flex;flex-direction:column;gap:18px}
+.asker{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:end}
+.asker > *{min-width:0}
+.asker .mini{width:96px;border-radius:50%;background:var(--cs);aspect-ratio:1;overflow:hidden;display:flex;align-items:flex-end;justify-content:center}
+.asker .mini svg{width:88%;margin-bottom:-6%}
+.asker .bubble{font-family:var(--f-body);font-size:1.15rem;font-weight:700;border-color:var(--c);color:var(--ink);border-radius:20px 20px 20px 4px}
+.qtext{font-size:1.15rem;font-weight:700}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;gap:12px;align-items:center;text-align:left;border:3px solid var(--line);background:var(--surface);border-radius:18px;padding:10px 14px;min-height:56px;transition:transform .1s,border-color .1s}
+.opt:hover{border-color:var(--c)}
+.opt .box{flex:none;width:34px;height:34px;border-radius:50%;background:var(--cs);color:var(--c);font-family:var(--f-display);font-weight:800;display:grid;place-items:center}
+.opt.multi .box{border-radius:10px;color:transparent}
+.opt[aria-pressed="true"]{border-color:var(--c);background:var(--cs)}
+.opt[aria-pressed="true"] .box{background:var(--c);color:#fff}
+.opt.good{border-color:var(--ok);background:var(--ok-s)} .opt.good .box{background:var(--ok);color:#fff}
+.opt.bad{border-color:var(--ko);background:var(--ko-s)} .opt.bad .box{background:var(--ko);color:#fff}
+.ord{display:flex;gap:10px;align-items:center;border:3px solid var(--line);border-radius:18px;padding:10px 12px;background:var(--surface)}
+.ord span{flex:1;min-width:0}
+.ord .n{flex:none;width:32px;height:32px;border-radius:50%;background:var(--c);color:#fff;font-family:var(--f-display);font-weight:800;display:grid;place-items:center}
+.ord button{flex:none;width:42px;height:42px;border-radius:12px;border:2px solid var(--line);background:var(--cs);font-weight:800;color:var(--c)}
+.tri{display:flex;flex-direction:column;gap:10px}
+.tri-row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;border:3px solid var(--line);border-radius:18px;padding:10px 12px;background:var(--surface)}
+.tri-row > span{min-width:0;font-weight:700}
+.tri-row .cats{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.tri-row .cats button{border:2px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;font-weight:700;font-size:.92rem}
+.tri-row .cats button[aria-pressed="true"]{background:var(--c);color:#fff;border-color:var(--c)}
+.tri-row.good{border-color:var(--ok);background:var(--ok-s)} .tri-row.bad{border-color:var(--ko);background:var(--ko-s)}
+input[type=text],input[type=number],input[type=password],select,textarea{width:100%;border:3px solid var(--line);background:var(--surface);border-radius:14px;padding:10px 14px;min-height:50px}
+input:focus,select:focus,textarea:focus{border-color:var(--c,var(--blue));outline:none}
+textarea{min-height:150px;resize:vertical}
+label.f{display:flex;flex-direction:column;gap:6px;font-weight:700}
+label.f small{font-weight:400;color:var(--muted)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid2 > *{min-width:0}
+.hint{background:var(--sun);color:var(--sun-ink);border-radius:6px;padding:12px 16px;font-family:var(--f-hand);font-weight:700;font-size:1.35rem;line-height:1.2;transform:rotate(-.6deg)}
+.fb{border-radius:18px;padding:14px 18px;display:flex;flex-direction:column;gap:6px}
+.fb.ok{background:var(--ok-s);border:3px solid var(--ok)}
+.fb.ko{background:var(--ko-s);border:3px solid var(--ko)}
+.fb b{font-family:var(--f-display);font-size:1.25rem}
+.fb.ok b{color:var(--ok)} .fb.ko b{color:var(--ko)}
+.qfoot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.req{color:var(--ko)}
+.check{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:2px dashed var(--line)}
+.check input{width:24px;height:24px;flex:none;margin-top:1px;accent-color:var(--ok)}
+.result{align-items:center;text-align:center;position:relative;overflow:hidden}
+.bigdigit{font-family:var(--f-display);font-size:4.5rem;font-weight:800;background:var(--sun);color:var(--sun-ink);border-radius:20px;width:110px;line-height:1.35;transform:rotate(-6deg);box-shadow:0 6px 0 rgba(0,0,0,.15);animation:pop .6s cubic-bezier(.2,1.6,.4,1) both}
+@keyframes pop{from{transform:scale(.2) rotate(-40deg)}to{transform:scale(1) rotate(-6deg)}}
+.confetti{position:absolute;inset:0;pointer-events:none}
+.confetti i{position:absolute;top:-14px;width:10px;height:16px;border-radius:3px;animation:fall 2.6s ease-in forwards}
+@keyframes fall{to{transform:translateY(520px) rotate(540deg);opacity:0}}
+
+/* Avatar */
+.av-builder{display:grid;grid-template-columns:230px 1fr;gap:20px;align-items:start}
+.av-builder > *{min-width:0}
+.av-prev{background:conic-gradient(var(--pink-s),var(--blue-s),var(--green-s),var(--sun),var(--orange-s),var(--purple-s),var(--pink-s));border-radius:28px;padding:14px;display:flex;justify-content:center;position:sticky;top:12px}
+.av-prev svg{width:100%;max-width:200px;height:auto}
+.av-ctrl{display:flex;flex-direction:column;gap:14px}
+.av-ctrl .lab{font-family:var(--f-display);font-weight:800;color:var(--c,var(--navy));margin-bottom:4px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:2px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;font-size:.95rem;font-weight:700}
+.chip[aria-pressed="true"]{background:var(--c,var(--navy));color:#fff;border-color:var(--c,var(--navy))}
+.sw{width:38px;height:38px;border-radius:50%;border:3px solid var(--surface);box-shadow:0 0 0 2px var(--line)}
+.sw[aria-pressed="true"]{box-shadow:0 0 0 3px var(--c,var(--navy))}
+
+.badgecard{width:260px;max-width:100%;background:#fff;color:#1f2a48;border-radius:18px;overflow:hidden;border:3px solid var(--bc);box-shadow:0 8px 18px rgba(31,42,72,.18);display:flex;flex-direction:column;align-items:center;text-align:center;font-size:1rem;position:relative}
+.badgecard::before{content:"";width:46px;height:9px;border-radius:5px;background:#d9dde7;margin:10px 0 4px}
+.bc-top{display:flex;gap:10px;align-items:center;width:100%;padding:6px 12px 10px;background:var(--bc);color:#fff}
+.bc-logo{width:52px;height:52px;border-radius:12px;background:#fff;display:grid;place-items:center;overflow:hidden;flex:none;padding:3px}
+.bc-ent{font-family:var(--f-display);font-weight:800;line-height:1.1;text-align:left;font-size:1.1em;min-width:0;overflow-wrap:anywhere}
+.bc-ent small{display:block;font-weight:600;font-size:.75em;opacity:.85}
+.bc-av{width:52%;margin-top:8px;border-radius:50%;background:#eef2fb;aspect-ratio:1;overflow:hidden;display:flex;align-items:flex-end;justify-content:center;border:3px solid var(--bc)}
+.bc-av svg{width:88%;margin-bottom:-8%}
+.bc-name{font-family:var(--f-display);font-weight:800;font-size:1.5em;margin-top:6px}
+.bc-role{background:var(--bc);color:#fff;font-weight:700;border-radius:999px;padding:1px 14px;font-size:.9em}
+.bc-foot{font-size:.72em;color:#5b6585;padding:8px 10px 12px;line-height:1.3}
+/* Valise */
+.valise{display:flex;flex-direction:column;align-items:center;gap:20px;padding-block:24px 10px}
+.case{position:relative;width:min(460px,100%);background:var(--orange);border-radius:26px;padding:60px 22px 28px;color:#fff;box-shadow:0 10px 0 rgba(0,0,0,.2)}
+.case::before{content:"";position:absolute;top:-34px;left:50%;transform:translateX(-50%);width:130px;height:44px;border:10px solid var(--navy);border-bottom:0;border-radius:20px 20px 0 0}
+.case .strap{position:absolute;top:0;bottom:0;width:18px;background:rgba(255,255,255,.22)}
+.case .stk{position:absolute;font-family:var(--f-display);font-weight:800;font-size:.85rem;border-radius:999px;padding:2px 10px;color:#fff}
+.lock{position:relative;display:flex;justify-content:center;gap:6px;flex-wrap:nowrap;background:rgba(0,0,0,.18);border-radius:16px;padding:10px}
+.lock input{width:48px;height:64px;text-align:center;font-family:var(--f-display);font-size:2.1rem;font-weight:800;border-radius:12px;border:3px solid var(--sun);background:#fffaf0;color:#2a1d00;padding:0;min-height:0}
+.case .label{position:relative;text-align:center;font-family:var(--f-display);font-weight:800;margin-bottom:12px;letter-spacing:.06em;font-size:1.15rem}
+.open-msg{text-align:center}
+
+/* Lexique */
+.lex{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.lexcard{border-radius:20px;background:var(--cs);padding:16px;display:flex;flex-direction:column;gap:8px;text-align:left;min-height:130px;border:3px solid transparent}
+.lexcard b{font-family:var(--f-display);font-size:1.25rem;color:var(--c)}
+.lexcard.known{border-color:var(--ok)}
+
+/* Tableaux */
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.92rem;font-variant-numeric:tabular-nums}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.ae td:not(:first-child){text-align:center}
+.ae input{width:22px;height:22px;accent-color:var(--ok)}
+
+/* Kit */
+.kit{display:flex;flex-direction:column;gap:16px}
+.kit section{border-radius:18px;padding:16px 18px;display:flex;flex-direction:column;gap:8px;break-inside:avoid;background:var(--cs)}
+.kit section h3{color:var(--c)}
+.kit .lines{border-bottom:2px dotted var(--muted);height:30px}
+.kit dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:0}
+.kit dt{font-weight:700} .kit dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.notice{background:var(--blue-s);border-radius:16px;padding:12px 16px;font-size:.95rem}
+.copybox{display:flex;flex-direction:column;gap:8px}
+.copybox textarea{min-height:120px;font-family:ui-monospace,Menlo,monospace;font-size:.8rem}
+
+@media (max-width:820px){
+  .brand{grid-template-columns:1fr}
+  .brand .logo,.brand .cap{display:none}
+  .hero,.grid2,.av-builder{grid-template-columns:1fr}
+  .av-prev{position:static}
+  .tags,.lex{grid-template-columns:1fr 1fr}
+  .levels{grid-template-columns:1fr}
+  .link-pdf{grid-template-columns:1fr 1fr}
+}
+@media (max-width:480px){
+  .tags,.lex,.link-pdf{grid-template-columns:1fr}
+  .lock input{width:40px;height:56px;font-size:1.7rem}
+  .tri-row{grid-template-columns:1fr}
+  .tri-row .cats{justify-content:flex-start}
+  .asker{grid-template-columns:64px 1fr} .asker .mini{width:64px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media print{
+  .top,.no-print,#view-accueil,#view-etapes,#view-qui,#view-mission,#view-missions,#view-lexique,#view-valise,#view-enseignant{display:none!important}
+  body{background:#fff;color:#000;font-size:12pt}
+}
+</style>
+</head>
+<body>
+
+
+<header class="top no-print">
+  <div class="wrap">
+    <div class="brand">
+      <div class="logo">LYCÉE<br>JEAN HANZELET<small>PONT-À-MOUSSON</small><small style="margin-top:6px;letter-spacing:0;color:var(--ink)">Marie Frison | Enseignante</small></div>
+      <div class="title">
+        <h1>Ma 1<sup>ère</sup> PFMP</h1>
+        <span class="sub">Je prépare mon stage !</span>
+        <span class="dates">Du 01/02/2027 au 20/02/2027</span>
+      </div>
+      <div class="cap">1CAP<small>EPC · Lycée J. Hanzelet</small></div>
+    </div>
+    <nav class="tabs" aria-label="Sections">
+      <button data-go="accueil">Accueil</button>
+      <button data-go="missions">Mes missions en stage</button>
+      <button data-go="etapes">Mes étapes</button>
+      <button data-go="lexique">Les mots du pro</button>
+      <button data-go="valise">La valise</button>
+      <button data-go="bilan">Mon kit et mon bilan</button>
+      <button data-go="enseignant">Espace enseignant</button>
+      <button data-go="qui" id="nav-who" style="background:var(--sun);color:var(--sun-ink)">Changer d'élève</button>
+    </nav>
+  </div>
+</header>
+
+<main><div class="wrap">
+
+<!-- ACCUEIL -->
+<section class="view" id="view-accueil">
+  <div class="hero">
+    <div class="story">
+      <span class="hand" style="font-size:1.6rem;color:var(--pink)">Compte à rebours vers ton stage…</span>
+      <h2>Lundi 1<sup>er</sup> février 2027, <span class="hl">c'est ton premier jour</span></h2>
+      <p>Ton tuteur ou ta tutrice t'attend. Il ou elle va te regarder arriver, t'écouter te présenter et voir comment tu travailles.</p>
+      <p>Avant de partir, tu prépares <b>ton vrai stage</b> : ton avatar, ton entreprise, ta tenue, ton trajet et ta présentation.</p>
+      <p>La valise de stage est fermée par un <b>cadenas à 6 chiffres</b>. Chaque étape réussie t'en donne un. À la fin, tu imprimes <b>ton kit PFMP</b>.</p>
+      <div class="row">
+        <button class="btn gold" data-go="missions">C'est parti !</button>
+        <button class="btn ghost" data-go="lexique">Les mots du pro</button>
+        <button class="say" data-say="story">🔊 Écouter</button>
+      </div>
+    </div>
+    <div class="avatar-hero">
+      <div class="bubble" id="hero-bubble">Crée-moi à l'étape 1 !</div>
+      <div class="stage" id="hero-avatar"></div>
+      <div class="muted small" id="hero-name"></div>
+    </div>
+  </div>
+
+  <div class="row" style="justify-content:center;gap:28px">
+    <div class="sticky">Chaque expérience est une étape vers ton avenir ! 🙂</div>
+    <div class="sticky" style="transform:rotate(2.5deg);background:var(--pink-s);color:var(--pink)">Je découvre, je participe, je progresse !</div>
+  </div>
+
+  <div class="card stack">
+    <h3>Choisis ton niveau à chaque étape</h3>
+    <div class="levels" id="levels-info"></div>
+    <p class="muted small">Tu peux changer de niveau au début de chaque étape, et refaire une étape réussie à un niveau plus élevé.</p>
+  </div>
+
+  <div class="card stack">
+    <h3>Ce jeu prépare tes 4 missions en entreprise</h3>
+    <div class="link-pdf">
+      <div class="c-blue"><b>Mission 1</b>Je présente mon entreprise → étape 1</div>
+      <div class="c-green"><b>Mission 2</b>J'observe le magasin → étape 6</div>
+      <div class="c-orange"><b>Mission 3</b>Je participe à une tâche → étapes 5 et 6</div>
+      <div class="c-purple"><b>Mission 4</b>Je découvre le métier → étapes 2 et 6</div>
+    </div>
+  </div>
+</section>
+
+<!-- ÉTAPES -->
+<section class="view" id="view-etapes" hidden>
+  <div class="row" style="justify-content:space-between">
+    <div class="stack" style="gap:4px">
+      <h2>Mes étapes</h2>
+      <p class="muted">Fais-les dans l'ordre : chaque étape réussie ouvre la suivante et te donne un chiffre du cadenas.</p>
+    </div>
+    <button class="say" data-say="etapes">🔊 Écouter</button>
+  </div>
+  <div class="tags" id="tags"></div>
+  <div class="row"><button class="btn gold" data-go="valise">Aller à la valise</button></div>
+</section>
+
+<!-- MISSION -->
+<section class="view" id="view-mission" hidden></section>
+
+<!-- QUI ES-TU -->
+<section class="view" id="view-qui" hidden>
+  <div class="stack" style="gap:4px">
+    <span class="hand" style="font-size:1.6rem;color:var(--blue)">Bonjour !</span>
+    <h2>Qui es-tu ?</h2>
+    <p class="muted">Plusieurs élèves utilisent cet ordinateur. Clique sur ton prénom pour retrouver ton travail, ou commence comme nouvel élève.</p>
+  </div>
+  <div class="lex" id="qui-list"></div>
+  <div class="row"><button class="btn gold" id="qui-new">Je suis un nouvel élève</button></div>
+  <div class="notice">Avant de changer d'élève, pense à télécharger ta sauvegarde dans « Mon kit et mon bilan » et à la déposer sur le Digipad. Elle te permet de continuer sur un autre ordinateur.</div>
+</section>
+
+<!-- MISSIONS EN ENTREPRISE -->
+<section class="view" id="view-missions" hidden>
+  <div class="stack" style="gap:4px">
+    <span class="hand" style="font-size:1.6rem;color:var(--pink)">Je découvre, je participe, je progresse !</span>
+    <h2>Mes missions en entreprise</h2>
+    <p class="muted">Du 01/02/2027 au 20/02/2027 · 1CAP EPC · M. Amlal et Mme Frison. Pendant ta PFMP, tu réalises ces 4 missions. Les fiches à remplir sont dans ton kit imprimable.</p>
+  </div>
+  <div class="grid2" id="pfmp-missions"></div>
+  <div class="row" style="justify-content:center"><button class="btn gold" data-go="etapes">Je me prépare : mes 6 étapes</button></div>
+  <div class="band c-pink">
+    <h3>Rappel</h3>
+    <div class="link-pdf">
+      <div class="c-pink"><b>Photo</b>Je demande avant de prendre une photo.</div>
+      <div class="c-pink"><b>Respect</b>Je respecte les clients et l'entreprise.</div>
+      <div class="c-pink"><b>Notes</b>Je note ce que je fais.</div>
+      <div class="c-pink"><b>Aide</b>Si je ne comprends pas, je demande de l'aide.</div>
+    </div>
+  </div>
+  <div class="band c-blue">
+    <h3>À mon retour au lycée</h3>
+    <p>Je présenterai une activité réalisée en PFMP à mes professeurs, puis je raconterai mon expérience dans une interview de 3 à 5 minutes, enregistrée sur Vocaroo.</p>
+    <div class="row"><button class="btn col" data-go="bilan">Voir mon kit PFMP</button><span class="hand" style="font-size:1.5rem;color:var(--blue)">Bonne PFMP ! Fiers de vos progrès !</span></div>
+  </div>
+</section>
+
+<!-- LEXIQUE -->
+<section class="view" id="view-lexique" hidden>
+  <div class="stack" style="gap:4px">
+    <h2>Les mots du pro</h2>
+    <p class="muted">Clique sur une carte pour voir la définition. Coche « Je sais l'expliquer » seulement quand tu peux l'expliquer avec tes mots, sans lire.</p>
+  </div>
+  <div class="row"><b id="lex-count">0 / 0</b><span class="muted">mots que je sais expliquer</span></div>
+  <div class="band c-purple" id="lexquiz">
+    <div class="row" style="justify-content:space-between"><h3>Quiz des mots du pro</h3><span class="small" id="lq-best"></span></div>
+    <div id="lq-body" class="stack"><p>10 définitions, à chaque fois 4 mots : trouve le bon. Tu peux le refaire autant de fois que tu veux.</p><div class="row"><button class="btn col" id="lq-start">Lancer le quiz</button></div></div>
+  </div>
+  <div class="lex" id="lex"></div>
+</section>
+
+<!-- VALISE -->
+<section class="view" id="view-valise" hidden>
+  <div class="stack" style="gap:4px">
+    <h2>La valise de stage <span class="hand" style="color:var(--orange);font-size:1.6rem">ouvre-la !</span></h2>
+    <p class="muted">Saisis le code complet, dans l'ordre des étapes, de 1 à 6.</p>
+  </div>
+  <div class="valise">
+    <div class="case">
+      <div class="strap" style="left:22%"></div><div class="strap" style="right:22%"></div>
+      <span class="stk" style="top:14px;left:16px;background:var(--pink);transform:rotate(-8deg)">CAP EPC</span><span class="stk" style="top:16px;right:16px;background:var(--teal);transform:rotate(7deg)">Pont-à-Mousson</span><div class="label">VALISE PFMP · <span id="case-name">STAGIAIRE</span></div>
+      <div class="lock" id="lock"></div>
+    </div>
+    <button class="btn gold" id="unlock">Ouvrir la valise</button>
+    <div id="valise-msg" class="open-msg"></div>
+  </div>
+</section>
+
+<!-- BILAN -->
+<section class="view" id="view-bilan" hidden>
+  <div class="stack" style="gap:4px">
+    <h2>Mon kit et mon bilan</h2>
+    <p class="muted no-print">Ton kit PFMP rassemble tout ce que tu as préparé. Imprime-le et emporte-le le lundi 1<sup>er</sup> février 2027. Le bilan est une trace professionnelle pour ton dossier CPro.</p>
+  </div>
+
+  <div class="card stack no-print">
+    <h3>Envoie ton travail à ton enseignante</h3>
+    <ol class="stack" style="gap:6px;margin:0;padding-left:20px">
+      <li>Clique sur « Télécharger ma sauvegarde » : un fichier <b>sauvegarde_pfmp_….json</b> se télécharge.</li>
+      <li id="digipad-step">Ouvre le Digipad de la classe, clique sur le <b>+</b>, choisis <b>Fichier</b> et dépose ce fichier sans changer son nom.</li>
+      <li>Sur un autre ordinateur, tu peux reprendre ton travail avec « Charger une sauvegarde ».</li>
+    </ol>
+    <div class="row">
+      <button class="btn gold" id="btn-save">Télécharger ma sauvegarde</button>
+      <a class="btn" id="btn-digipad" target="_blank" rel="noopener" hidden>Ouvrir le Digipad</a>
+      <label class="btn ghost" for="load-file">Charger une sauvegarde</label>
+      <input type="file" id="load-file" accept=".json,application/json" hidden>
+      <button class="btn ghost" id="btn-print">Imprimer mon kit et mon bilan</button>
+    </div>
+    <div id="save-fallback"></div>
+  </div>
+
+  <div class="card stack">
+    <h3>Bilan des étapes</h3>
+    <div class="tbl"><table id="bilan-table"></table></div>
+    <h3>Où j'en suis</h3>
+    <p class="muted small">Pour chaque compétence, coche : je découvre, je fais avec aide, ou je fais seul(e).</p>
+    <div class="tbl"><table class="ae" id="ae-table"></table></div>
+  </div>
+
+  <div class="card">
+    <div class="kit" id="kit"></div>
+  </div>
+
+  <div class="card stack no-print">
+    <h3>Tout recommencer</h3>
+    <p class="muted small">Efface ton avatar, ta fiche et tes étapes sur cet ordinateur. Télécharge d'abord ta sauvegarde.</p>
+    <div class="row" id="reset-zone"><button class="btn ghost" id="btn-reset">Tout recommencer</button></div>
+  </div>
+</section>
+
+<!-- ENSEIGNANT -->
+<section class="view" id="view-enseignant" hidden>
+  <div class="stack" style="gap:4px">
+    <h2>Espace enseignant</h2>
+    <p class="muted">Ma 1ère PFMP · 1CAP EPC · Mme Frison · M. Amlal · 2026–2027</p>
+  </div>
+  <div class="card stack" id="t-login">
+    <label class="f" for="t-pass">Code enseignant<input type="password" id="t-pass" autocomplete="off"></label>
+    <div class="row"><button class="btn" id="t-go">Entrer</button><span id="t-err" class="small" style="color:var(--ko)"></span></div>
+  </div>
+  <div id="t-panel" class="stack" hidden>
+    <div class="row" id="t-tabs">
+      <button class="chip" data-t="suivi" aria-pressed="true">Suivi de classe</button>
+      <button class="chip" data-t="corrige">Corrigé</button>
+      <button class="chip" data-t="poste">Élèves de cet ordinateur</button>
+      <button class="chip" data-t="reglages">Réglages</button>
+    </div>
+    <div id="t-suivi" class="stack">
+      <div class="card stack">
+        <h3>Importer les sauvegardes des élèves</h3>
+        <p class="muted small">Téléchargez les fichiers .json du Digipad, puis sélectionnez-les tous d'un coup.</p>
+        <input type="file" id="t-files" accept=".json,application/json" multiple>
+        <div class="row"><button class="btn gold" id="t-csv" disabled>Exporter pour Excel (.csv)</button><button class="btn ghost" id="t-csv-ent" disabled>Exporter les lieux de stage</button></div>
+        <div id="t-fallback"></div>
+      </div>
+      <div class="card stack"><h3>Tableau de bord</h3><div class="tbl" id="t-table"><p class="muted">Aucune sauvegarde importée.</p></div></div>
+      <div class="card stack"><h3>Fiches élèves</h3><div id="t-fiches" class="stack"><p class="muted">Les fiches entreprise, présentations et écrits apparaîtront ici.</p></div></div>
+    </div>
+    <div id="t-corrige" class="stack" hidden></div>
+    <div id="t-poste" class="card stack" hidden>
+      <h3>Élèves enregistrés sur cet ordinateur</h3>
+      <p class="muted small">Le travail des élèves est gardé dans ce navigateur. Supprimez les élèves en fin d'année ou avant de prêter le poste à une autre classe. Vérifiez d'abord qu'ils ont déposé leur sauvegarde sur le Digipad.</p>
+      <div class="tbl" id="t-poste-list"></div>
+      <div class="row" id="t-poste-all"></div>
+    </div>
+    <div id="t-reglages" class="card stack" hidden>
+      <h3>Réglages dans le fichier index.html</h3>
+      <p>En haut du script, dans le bloc <b>RÉGLAGES</b>, vous pouvez modifier :</p>
+      <ul class="stack" style="gap:6px;margin:0;padding-left:20px">
+        <li><b>CODE_ENSEIGNANT</b> : le code de cet espace.</li>
+        <li><b>DIGIPAD_URL</b> : le lien du Digipad de la classe (le bouton apparaît chez les élèves).</li>
+        <li><b>ENTREPRISES</b> : la liste des lieux de stage de la classe (nom, secteur, ville). Les élèves la retrouvent dans un menu déroulant à l'étape 1. N'y mettez pas les noms des élèves : la page est publique.</li>
+      </ul>
+      <p class="muted small">Le code enseignant protège l'affichage, pas les données : les élèves pourraient le trouver dans le code de la page. Les réponses ne sont pas sur ce site, elles restent dans les fichiers de sauvegarde.</p>
+    </div>
+  </div>
+</section>
+
+</div></main>
+<footer class="no-print"><div class="wrap" style="padding-block:20px 30px;text-align:center" class="small muted"><span class="small muted">Ma 1ère PFMP · Activité conçue par Mme Marie Frison · 1CAP EPC · Lycée Jean Hanzelet, Pont-à-Mousson · 2026–2027</span></div></footer>
+
+<script>
+/* ===================== RÉGLAGES ===================== */
+const CODE_ENSEIGNANT = "GRELOT5821";
+const DIGIPAD_URL = "";            // ex. "https://digipad.app/p/123456/abcdef"
+const ENTREPRISES = [
+  // secteurs possibles : alim, brico, mode, sport, maison, autre
+  { nom: "Intermarché", secteur: "alim", ville: "Pont-à-Mousson" },
+  { nom: "Carrefour Contact Pagny", secteur: "alim", ville: "Pagny-sur-Moselle" },
+  { nom: "Les 3 Petits Boulangers", secteur: "alim", ville: "Jarny" },
+  { nom: "Kiabi", secteur: "mode", ville: "Pont-à-Mousson" },
+  { nom: "Terranimo", secteur: "brico", ville: "Pont-à-Mousson" },
+  { nom: "Instaglam", secteur: "mode", ville: "Pont-à-Mousson" },
+  { nom: "Bab'Kasia", secteur: "autre", ville: "Pont-à-Mousson" },
+];
+const CODE_VALISE = "010227";       // 1er février 2027
+/* ==================================================== */
+
+const KEY = "pfmp_cap_epc_v1";
+const SECTEURS = {
+  alim:  {nom:"Supermarché / alimentaire / boulangerie", ex:"produits frais, épicerie, pain, boissons, hygiène"},
+  brico: {nom:"Jardinerie / animalerie / bricolage", ex:"plantes, terreau, aliments pour animaux, outillage"},
+  mode:  {nom:"Vêtements / chaussures", ex:"vêtements, chaussures, accessoires"},
+  sport: {nom:"Sport / loisirs", ex:"équipements de sport, vélos, textiles"},
+  maison:{nom:"Maison / décoration / discount", ex:"vaisselle, déco, entretien, petits prix"},
+  autre: {nom:"Autre commerce", ex:"les produits de ton magasin"}
+};
+const COL=["blue","pink","green","orange","purple","teal"];
+const ICO={
+  store:'<path d="M3 9l1.5-5h15L21 9H3zM3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0M5 12v8h14v-8M10 20v-5h4v5"/>',
+  chat:'<path d="M4 5h16v10H9l-5 4z"/><path d="M8 9h8M8 12h5"/>',
+  bag:'<path d="M6 9a6 6 0 0 1 12 0v11H6z"/><path d="M9 5V3h6v2M6 14h12M10 14v3h4v-3"/>',
+  shield:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/>',
+  thumb:'<path d="M7 11v9H4v-9zM7 11l4-8a2 2 0 0 1 3 2l-1 5h6a2 2 0 0 1 2 2l-2 7a2 2 0 0 1-2 1H7"/>',
+  eye:'<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+  badge:'<rect x="5" y="3" width="14" height="18" rx="3"/><circle cx="12" cy="10" r="3"/><path d="M8.5 17c1-2 6-2 7 0"/>',
+  team:'<circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-4 3-6 6-6s6 2 6 6M15 14c3 0 6 1.5 6 5"/>',
+  star:'<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>'
+};
+const ico=(k,sz)=>`<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" ${sz?`style="width:${sz}px;height:${sz}px"`:""}>${ICO[k]}</svg>`;
+const MICO=["store","chat","bag","shield","thumb","eye"];
+const LVCOL={1:"green",2:"blue",3:"purple"}, LVICO={1:"badge",2:"team",3:"star"};
+const LV = {
+  1:{nom:"Stagiaire", desc:"Je suis accompagné(e). Toutes les questions de base, l'aide est affichée."},
+  2:{nom:"Équipier", desc:"Je me lance. Questions plus difficiles, calculs et écrit, l'aide sur demande."},
+  3:{nom:"Chef d'équipe", desc:"Je deviens autonome. Étape complète, cas difficiles, écrits longs, aucune aide."}
+};
+
+/* ---------- état ---------- */
+const blank = () => ({profil:{prenom:"",classe:""}, avatar:{peau:1,cheveux:"court",cCheveux:0,haut:"sweat",cHaut:0,bas:"jogging",chaussures:"baskets",cBas:1,casquette:true,ecouteurs:true,bijoux:false,lunettes:false,montre:false,barbe:false,foulard:false,tablier:false,bonnet:false},
+  badge:{couleur:"#2f6fd6",role:"Stagiaire",logo:""},
+  fiche:{entreprise:"",secteur:"",ville:"",adresse:"",activite:"",produits:"",clients:"",ouverture:"",tuteur:"",telephone:"",debut:"",finMatin:"",debutAprem:"",fin:"",jours:"5",sansStage:false,recherche:""},
+  missions:{}, writes:{}, checks:{}, trajet:{mode:"",duree:"",depart:""}, lex:{}, ae:{}, lexQuiz:null, valise:false, maj:""});
+let S = blank();
+const IDX=KEY+"_eleves"; let CUR=null;
+const ls={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}},del(k){try{localStorage.removeItem(k)}catch(e){}}};
+const ss={get(k){try{return sessionStorage.getItem(k)}catch(e){return null}},set(k,v){try{sessionStorage.setItem(k,v)}catch(e){}},del(k){try{sessionStorage.removeItem(k)}catch(e){}}};
+function hydrate(d){d=d||{}; const x=Object.assign(blank(),d); x.avatar=Object.assign(blank().avatar,d.avatar||{}); x.fiche=Object.assign(blank().fiche,d.fiche||{}); x.badge=Object.assign(blank().badge,d.badge||{}); return x;}
+function profiles(){try{return JSON.parse(ls.get(IDX)||"[]")}catch(e){return []}}
+function setProfiles(p){ls.set(IDX,JSON.stringify(p));}
+const newId=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+function openProfile(id){ CUR=id; try{S=hydrate(JSON.parse(ls.get(KEY+"_"+id)||"{}"))}catch(e){S=blank()} ss.set(KEY+"_cur",id); }
+function closeProfile(){ CUR=null; S=blank(); ss.del(KEY+"_cur"); RUN=null; }
+function deleteProfile(id){ ls.del(KEY+"_"+id); setProfiles(profiles().filter(p=>p.id!==id)); if(id===CUR) closeProfile(); }
+function load(){
+  const old=ls.get(KEY); if(old){ const id=newId(); ls.set(KEY+"_"+id,old); let pr=""; try{pr=JSON.parse(old).profil?.prenom||""}catch(e){} setProfiles([...profiles(),{id,prenom:pr,maj:""}]); ls.del(KEY); ss.set(KEY+"_cur",id); }
+  const cur=ss.get(KEY+"_cur"); if(cur && profiles().some(p=>p.id===cur)) openProfile(cur); else { CUR=null; S=blank(); }
+}
+function save(){ S.maj=new Date().toISOString();
+  let P=profiles(); if(!CUR || !P.some(p=>p.id===CUR)){ CUR=CUR||newId(); P.push({id:CUR,prenom:"",maj:""}); ss.set(KEY+"_cur",CUR); }
+  ls.set(KEY+"_"+CUR,JSON.stringify(S)); P=P.map(p=>p.id===CUR?{id:CUR,prenom:S.profil.prenom,entreprise:S.fiche.entreprise,etapes:M.filter(m=>S.missions[m.id]?.done).length,maj:S.maj}:p); setProfiles(P); updateWho(); }
+function updateWho(){ const b=document.getElementById("nav-who"); if(b) b.textContent = S.profil.prenom ? "Élève : "+S.profil.prenom+" · changer" : "Changer d'élève"; }
+load();
+
+/* ---------- utilitaires ---------- */
+const $ = (s,el=document)=>el.querySelector(s);
+const esc = s => String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const shuffle = a => {a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]} return a};
+const words = t => (t||"").trim().split(/\s+/).filter(Boolean).length;
+const inFrame = (()=>{try{return window.self!==window.top}catch(e){return true}})();
+function parseTime(t){ if(!t) return null; const m=String(t).trim().toLowerCase().replace(/\s/g,"").match(/^(\d{1,2})(?:h|:|\.)?(\d{2})?$/); if(!m) return null; const h=+m[1], mi=m[2]?+m[2]:0; if(h>23||mi>59) return null; return h*60+mi; }
+const fmt = m => { m=((m%1440)+1440)%1440; return Math.floor(m/60)+" h "+String(m%60).padStart(2,"0"); };
+function speak(t){try{speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(t.replace(/<[^>]+>/g," ")); u.lang="fr-FR"; u.rate=.95; speechSynthesis.speak(u);}catch(e){}}
+const F = () => S.fiche;
+const prenom = () => S.profil.prenom || "(ton prénom)";
+const ent = () => F().entreprise || "ton entreprise";
+const tut = () => F().tuteur || "ton tuteur ou ta tutrice";
+const salut = () => { const t=F().tuteur.trim(); if(!t || /sais pas/i.test(t)) return "Bonjour Madame, bonjour Monsieur"; return "Bonjour "+t; };
+const debut = () => parseTime(F().debut) ?? 510;
+const sect = () => F().secteur || "autre";
+function heuresJour(){ const d=parseTime(F().debut), fm=parseTime(F().finMatin), da=parseTime(F().debutAprem), f=parseTime(F().fin);
+  if(d!=null&&fm!=null&&da!=null&&f!=null&&fm>d&&f>da&&da>=fm) return {min:(fm-d)+(f-da), txt:`${fmt(d)} – ${fmt(fm)} et ${fmt(da)} – ${fmt(f)}`, perso:true};
+  return {min:420, txt:"8 h 30 – 12 h 00 et 13 h 30 – 17 h 00", perso:false}; }
+
+/* ---------- avatar ---------- */
+const SKIN=["#f9e0cf","#f0c8a8","#d9a47c","#b97d52","#8d5a36","#5e3a22"];
+const HAIRC=["#22160f","#5b3a1f","#9a6a3c","#e1bf6b","#b2452c","#8a8f99","#5a3b8a"];
+const TOPC=["#2f6fd6","#22a058","#c43d6c","#3e4556","#e9e2d0","#f2851d","#7a4fd8"];
+const BOTC=["#3e5b8b","#33383f","#6f5a44","#7b808d","#8a2f45"];
+const AV_OPTS={
+  cheveux:[["court","Courts"],["long","Longs détachés"],["attache","Queue-de-cheval"],["chignon","Chignon"],["tresses","Tresses"],["boucle","Bouclés"],["afro","Afro"],["rase","Rasés"]],
+  haut:[["tshirt","Tee-shirt uni"],["polo","Polo"],["chemise","Chemise"],["pull","Pull"],["veste","Veste zippée"],["sweat","Sweat à capuche"],["debardeur","Débardeur"]],
+  bas:[["jean","Jean"],["toile","Pantalon de toile"],["jupe","Jupe longue"],["jeanTroue","Jean troué"],["jogging","Jogging"],["short","Short"]],
+  chaussures:[["baskets","Baskets fermées"],["ville","Chaussures de ville"],["bottines","Bottines"],["securite","Chaussures de sécurité"],["sandales","Claquettes"]],
+};
+const AV_TOGGLES=[["lunettes","Lunettes"],["montre","Montre"],["barbe","Barbe"],["foulard","Foulard"],["tablier","Tablier"],["casquette","Casquette"],["bonnet","Bonnet"],["ecouteurs","Écouteurs"],["bijoux","Bijoux"]];
+function avatarSVG(a, badge){
+  const sk=SKIN[a.peau]??SKIN[0], hc=HAIRC[a.cCheveux]??HAIRC[0], tc=TOPC[a.cHaut]??TOPC[0];
+  const bc= a.bas==="jean"||a.bas==="jeanTroue" ? "#3e5b8b" : a.bas==="jogging" ? "#7b808d" : a.bas==="short" ? "#b99a5f" : (BOTC[a.cBas]??BOTC[1]);
+  const shade="rgba(0,0,0,.18)", light="rgba(255,255,255,.35)"; let s="";
+  // jambes
+  if(a.bas==="short"){ s+=`<rect x="74" y="190" width="20" height="44" rx="6" fill="${sk}"/><rect x="106" y="190" width="20" height="44" rx="6" fill="${sk}"/><rect x="68" y="162" width="64" height="36" rx="8" fill="${bc}"/><rect x="99" y="176" width="2" height="22" fill="${shade}"/>`; }
+  else if(a.bas==="jupe"){ s+=`<rect x="76" y="200" width="18" height="34" rx="6" fill="#3a3540"/><rect x="106" y="200" width="18" height="34" rx="6" fill="#3a3540"/><path d="M68 162 H132 L140 220 H60Z" fill="${bc}"/><path d="M84 168 L80 220 M116 168 L120 220" stroke="${shade}" stroke-width="2"/>`; }
+  else { s+=`<rect x="70" y="162" width="29" height="72" rx="8" fill="${bc}"/><rect x="101" y="162" width="29" height="72" rx="8" fill="${bc}"/>`;
+    if(a.bas==="jogging") s+=`<rect x="72" y="168" width="3" height="62" fill="#fff" opacity=".8"/><rect x="125" y="168" width="3" height="62" fill="#fff" opacity=".8"/>`;
+    if(a.bas==="jean"||a.bas==="jeanTroue") s+=`<path d="M76 172 h16 M108 172 h16" stroke="#e9a923" stroke-width="1.5" opacity=".8"/>`;
+    if(a.bas==="jeanTroue") s+=`<path d="M76 200 q8 -5 16 0 q-8 6 -16 0Z M108 206 q8 -5 16 0 q-8 6 -16 0Z M80 216 h10" fill="${sk}" stroke="#dfe6f2" stroke-width="1"/>`; }
+  // chaussures
+  if(a.chaussures==="sandales"){ s+=`<ellipse cx="84" cy="239" rx="17" ry="6" fill="${sk}"/><ellipse cx="116" cy="239" rx="17" ry="6" fill="${sk}"/><rect x="70" y="234" width="28" height="5" rx="2" fill="#7a4a2a"/><rect x="102" y="234" width="28" height="5" rx="2" fill="#7a4a2a"/><rect x="66" y="242" width="36" height="4" rx="2" fill="#7a4a2a"/><rect x="98" y="242" width="36" height="4" rx="2" fill="#7a4a2a"/>`; }
+  else if(a.chaussures==="bottines"){ s+=`<path d="M68 246 V218 H98 V238 Q98 246 92 246Z" fill="#7a4a2a"/><path d="M132 246 V218 H102 V238 Q102 246 108 246Z" fill="#7a4a2a"/><rect x="68" y="242" width="30" height="4" fill="#4a2c18"/><rect x="102" y="242" width="30" height="4" fill="#4a2c18"/>`; }
+  else { const c={securite:"#23262d",ville:"#4a2c18",baskets:"#f3f4f6"}[a.chaussures]||"#f3f4f6", st=a.chaussures==="baskets"?"#c7cbd3":"#111";
+    s+=`<path d="M66 244 Q66 232 80 232 L96 232 Q100 232 100 237 L100 246 L66 246Z" fill="${c}" stroke="${st}" stroke-width="1.5"/><path d="M134 244 Q134 232 120 232 L104 232 Q100 232 100 237 L100 246 L134 246Z" fill="${c}" stroke="${st}" stroke-width="1.5"/>`;
+    if(a.chaussures==="securite") s+=`<rect x="66" y="238" width="10" height="8" rx="2" fill="#e9a923"/><rect x="124" y="238" width="10" height="8" rx="2" fill="#e9a923"/>`;
+    if(a.chaussures==="baskets") s+=`<path d="M78 238 h14 M108 238 h14" stroke="#2f6fd6" stroke-width="2"/>`; }
+  // bras
+  const longSleeve = ["sweat","chemise","pull","veste"].includes(a.haut);
+  if(a.haut==="debardeur"){ s+=`<rect x="48" y="102" width="18" height="62" rx="8" fill="${sk}"/><rect x="134" y="102" width="18" height="62" rx="8" fill="${sk}"/>`; }
+  else if(longSleeve){ s+=`<rect x="46" y="102" width="22" height="62" rx="9" fill="${tc}"/><rect x="132" y="102" width="22" height="62" rx="9" fill="${tc}"/>`; if(a.haut==="pull") s+=`<rect x="46" y="156" width="22" height="7" rx="3" fill="${shade}"/><rect x="132" y="156" width="22" height="7" rx="3" fill="${shade}"/>`; }
+  else { s+=`<rect x="49" y="124" width="16" height="40" rx="7" fill="${sk}"/><rect x="135" y="124" width="16" height="40" rx="7" fill="${sk}"/><rect x="46" y="102" width="22" height="28" rx="9" fill="${tc}"/><rect x="132" y="102" width="22" height="28" rx="9" fill="${tc}"/>`; }
+  s+=`<circle cx="57" cy="167" r="8" fill="${sk}"/><circle cx="143" cy="167" r="8" fill="${sk}"/>`;
+  if(a.montre) s+=`<rect x="50" y="154" width="15" height="7" rx="2" fill="#22252b"/><circle cx="57" cy="157.5" r="3" fill="#e9e2d0"/>`;
+  // buste
+  s+=`<rect x="91" y="82" width="18" height="20" fill="${sk}"/>`;
+  if(a.haut==="debardeur") s+=`<rect x="66" y="100" width="68" height="70" rx="14" fill="${tc}"/><rect x="72" y="92" width="8" height="14" fill="${tc}"/><rect x="120" y="92" width="8" height="14" fill="${tc}"/><path d="M80 100 Q100 116 120 100" fill="${sk}"/>`;
+  else s+=`<rect x="62" y="96" width="76" height="74" rx="16" fill="${tc}"/>`;
+  if(a.haut==="sweat") s+=`<path d="M74 100 Q100 126 126 100" stroke="${shade}" stroke-width="7" fill="none"/><rect x="80" y="140" width="40" height="18" rx="7" fill="${shade}"/><path d="M95 108 v18 M105 108 v18" stroke="#fff" stroke-width="2" opacity=".7"/>`;
+  if(a.haut==="polo") s+=`<path d="M86 96 L100 112 L114 96Z" fill="${shade}"/><path d="M100 112 v14" stroke="${shade}" stroke-width="3"/><circle cx="100" cy="118" r="1.8" fill="#fff"/>`;
+  if(a.haut==="chemise") s+=`<path d="M84 96 L100 110 L96 96Z M116 96 L100 110 L104 96Z" fill="#f4f4f4"/><path d="M100 110 v58" stroke="${shade}" stroke-width="2"/><circle cx="100" cy="124" r="1.8" fill="#fff"/><circle cx="100" cy="140" r="1.8" fill="#fff"/><circle cx="100" cy="156" r="1.8" fill="#fff"/>`;
+  if(a.haut==="tshirt") s+=`<path d="M88 96 Q100 108 112 96" fill="${sk}"/>`;
+  if(a.haut==="pull") s+=`<path d="M86 96 Q100 110 114 96" fill="${sk}" stroke="${shade}" stroke-width="4"/><rect x="62" y="162" width="76" height="8" rx="4" fill="${shade}"/>`;
+  if(a.haut==="veste") s+=`<path d="M88 96 L100 104 L112 96 V170 H88Z" fill="#f4f4f4"/><path d="M88 96 L80 120 L90 124 L96 100Z M112 96 L120 120 L110 124 L104 100Z" fill="${shade}"/><path d="M100 104 v66" stroke="#9aa1ad" stroke-width="2.5"/><rect x="68" y="142" width="14" height="3" fill="${shade}"/><rect x="118" y="142" width="14" height="3" fill="${shade}"/>`;
+  if(a.tablier){ const tb=S.badge?.couleur||"#22a058"; s+=`<path d="M88 98 L86 108 M112 98 L114 108" stroke="${tb}" stroke-width="3"/><path d="M76 108 H124 V212 Q100 220 76 212Z" fill="${tb}"/><rect x="86" y="146" width="28" height="18" rx="4" fill="${shade}"/><path d="M76 132 H62 M124 132 H138" stroke="${tb}" stroke-width="3"/>`; }
+  if(a.bijoux) s+=`<path d="M88 98 Q100 114 112 98" stroke="#e9a923" stroke-width="2.5" fill="none"/><circle cx="100" cy="108" r="3" fill="#e9a923"/>`;
+  if(badge) s+=`<rect x="112" y="110" width="20" height="14" rx="2" fill="#fff" stroke="#e9a923" stroke-width="2"/><rect x="115" y="114" width="8" height="2" fill="#1d2a4a"/><rect x="115" y="118" width="13" height="2" fill="#1d2a4a"/>`;
+  // foulard ou cheveux arrière
+  if(a.foulard){ s+=`<path d="M64 62 Q64 22 100 22 Q136 22 136 62 Q136 92 118 104 L82 104 Q64 92 64 62Z" fill="${TOPC[(a.cHaut+3)%TOPC.length]}"/>`; }
+  else {
+    if(a.cheveux==="long") s+=`<rect x="68" y="40" width="64" height="72" rx="24" fill="${hc}"/>`;
+    if(a.cheveux==="afro") s+=`<circle cx="100" cy="50" r="42" fill="${hc}"/>`;
+    if(a.cheveux==="attache") s+=`<path d="M128 46 Q146 56 138 92 Q132 70 124 56Z" fill="${hc}"/>`;
+    if(a.cheveux==="chignon") s+=`<circle cx="100" cy="24" r="13" fill="${hc}"/>`;
+    if(a.cheveux==="tresses") s+=[70,130].map(x=>[0,1,2,3,4].map(k=>`<ellipse cx="${x}" cy="${74+k*10}" rx="5.5" ry="6" fill="${hc}"/>`).join("")).join("");
+  }
+  // tête
+  if(!a.foulard) s+=`<circle cx="72" cy="62" r="6" fill="${sk}"/><circle cx="128" cy="62" r="6" fill="${sk}"/>`;
+  s+=`<circle cx="100" cy="60" r="28" fill="${sk}"/>`;
+  if(a.bijoux && !a.foulard) s+=`<circle cx="72" cy="70" r="2.6" fill="#e9a923"/><circle cx="128" cy="70" r="2.6" fill="#e9a923"/>`;
+  if(a.barbe) s+=`<path d="M73 62 Q74 92 100 92 Q126 92 127 62 Q124 80 112 80 Q100 76 88 80 Q76 80 73 62Z" fill="${hc}"/><path d="M92 76 Q100 72 108 76" stroke="${hc}" stroke-width="4" fill="none"/>`;
+  s+=`<circle cx="90" cy="62" r="3.2" fill="#1d1d1d"/><circle cx="110" cy="62" r="3.2" fill="#1d1d1d"/><path d="M90 72 Q100 80 110 72" stroke="#1d1d1d" stroke-width="2.4" fill="none" stroke-linecap="round"/><circle cx="84" cy="70" r="3.5" fill="#f08080" opacity=".25"/><circle cx="116" cy="70" r="3.5" fill="#f08080" opacity=".25"/>`;
+  if(a.lunettes) s+=`<circle cx="90" cy="62" r="8" fill="${light}" stroke="#22252b" stroke-width="2.4"/><circle cx="110" cy="62" r="8" fill="${light}" stroke="#22252b" stroke-width="2.4"/><path d="M98 62 h4 M82 60 L74 58 M118 60 L126 58" stroke="#22252b" stroke-width="2.4"/>`;
+  // cheveux dessus
+  if(a.foulard){ s+=`<path d="M70 56 Q70 30 100 30 Q130 30 130 56 Q120 42 100 42 Q80 42 70 56Z" fill="${TOPC[(a.cHaut+3)%TOPC.length]}"/><path d="M72 54 Q100 40 128 54" stroke="${shade}" stroke-width="2" fill="none"/>`; }
+  else if(a.cheveux==="boucle") s+=[[74,48],[82,38],[94,32],[106,32],[118,38],[126,48]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="10" fill="${hc}"/>`).join("");
+  else if(a.cheveux==="afro") s+=`<path d="M72 54 Q74 28 100 28 Q126 28 128 54 Q114 40 100 40 Q86 40 72 54Z" fill="${hc}"/>`;
+  else if(a.cheveux==="rase") s+=`<path d="M73 56 Q72 32 100 32 Q128 32 127 56 Q118 42 100 42 Q82 42 73 56Z" fill="${hc}" opacity=".5"/>`;
+  else s+=`<path d="M71 60 Q70 30 100 30 Q130 30 129 60 Q120 44 100 44 Q80 44 71 60Z" fill="${hc}"/>`;
+  if(!a.foulard && a.cheveux==="long") s+=`<rect x="68" y="50" width="8" height="54" rx="4" fill="${hc}"/><rect x="124" y="50" width="8" height="54" rx="4" fill="${hc}"/>`;
+  // couvre-chefs
+  if(a.bonnet) s+=`<path d="M70 52 Q70 20 100 20 Q130 20 130 52Z" fill="#c43d6c"/><rect x="68" y="46" width="64" height="10" rx="5" fill="#8f2449"/><circle cx="100" cy="18" r="7" fill="#f3f4f6"/>`;
+  else if(a.casquette) s+=`<path d="M70 52 Q71 24 100 24 Q129 24 130 52Z" fill="#b8344d"/><path d="M104 46 L148 50 Q150 55 143 55 L104 52Z" fill="#8f2439"/>`;
+  if(a.ecouteurs) s+=`<path d="M68 58 Q68 16 100 16 Q132 16 132 58" stroke="#22252b" stroke-width="5" fill="none"/><rect x="62" y="52" width="12" height="20" rx="5" fill="#22252b"/><rect x="126" y="52" width="12" height="20" rx="5" fill="#22252b"/>`;
+  return `<svg viewBox="0 0 200 252" role="img" aria-label="Avatar de ${esc(prenom())}" xmlns="http://www.w3.org/2000/svg">${s}</svg>`;
+}
+function dressProblems(a){
+  const p=[]; const sc=sect();
+  if(a.casquette||a.bonnet) p.push("Pas de casquette ni de bonnet dans un magasin : on doit voir ton visage.");
+  if(a.ecouteurs) p.push("Pas d'écouteurs : tu dois entendre les clients et les consignes.");
+  if(a.haut==="sweat") p.push("Le sweat à capuche fait négligé le premier jour : choisis un polo, une chemise, un pull ou un tee-shirt uni.");
+  if(a.haut==="debardeur") p.push("Le débardeur n'est pas une tenue de travail : couvre tes épaules.");
+  if(a.bas==="short") p.push("Le short n'est pas une tenue de travail.");
+  if(a.bas==="jogging") p.push("Le jogging fait trop « sport » : choisis un jean propre ou un pantalon.");
+  if(a.bas==="jeanTroue") p.push("Le jean troué fait négligé : choisis un jean sans trous ou un pantalon.");
+  if(a.chaussures==="sandales") p.push("Les claquettes sont interdites : il faut des chaussures fermées pour la sécurité dans la réserve.");
+  if(sc==="alim" && a.cheveux==="long" && !a.foulard) p.push("En alimentaire, les cheveux longs sont attachés (hygiène).");
+  if(sc==="alim" && a.bijoux) p.push("En alimentaire, on enlève les bijoux (hygiène et sécurité).");
+  if(sc==="alim" && a.montre) p.push("En alimentaire, on enlève aussi la montre (hygiène des mains).");
+  if(sc==="brico" && a.chaussures!=="securite") p.push("En jardinerie ou animalerie, il y a des sacs lourds : prends des chaussures de sécurité.");
+  return p;
+}
+function avatarBuilder(box, mode){
+  const a=S.avatar;
+  const render=()=>{
+    $(".av-prev",box).innerHTML=avatarSVG(a);
+    box.querySelectorAll("[data-k]").forEach(b=>b.setAttribute("aria-pressed", b.hasAttribute("data-toggle") ? String(!!a[b.dataset.k]) : String(String(a[b.dataset.k])===b.dataset.v)));
+    const bt=$("#cbas-row",box); if(bt) bt.hidden=!["toile","jupe"].includes(a.bas);
+    save();
+  };
+  const chips=(k)=>`<div class="chips">${AV_OPTS[k].map(([v,l])=>`<button class="chip" data-k="${k}" data-v="${v}">${l}</button>`).join("")}</div>`;
+  const sws=(k,arr,lab)=>`<div class="chips">${arr.map((c,i)=>`<button class="sw" style="background:${c}" data-k="${k}" data-v="${i}" aria-label="${lab} ${i+1}"></button>`).join("")}</div>`;
+  let h=`<div class="av-builder"><div class="av-prev"></div><div class="av-ctrl">`;
+  if(mode==="full") h+=`<div><div class="lab">Couleur de peau</div>${sws("peau",SKIN,"Teinte")}</div><div><div class="lab">Couleur des cheveux</div>${sws("cCheveux",HAIRC,"Couleur")}</div>`;
+  h+=`<div><div class="lab">Coiffure</div>${chips("cheveux")}</div>`;
+  h+=`<div><div class="lab">Haut</div>${chips("haut")}<div style="margin-top:6px">${sws("cHaut",TOPC,"Couleur du haut")}</div></div>`;
+  h+=`<div><div class="lab">Bas</div>${chips("bas")}<div id="cbas-row" style="margin-top:6px">${sws("cBas",BOTC,"Couleur du bas")}</div></div>`;
+  h+=`<div><div class="lab">Chaussures</div>${chips("chaussures")}</div>`;
+  h+=`<div><div class="lab">Accessoires (clique pour mettre ou enlever)</div><div class="chips">${AV_TOGGLES.map(([k,l])=>`<button class="chip" data-k="${k}" data-v="true" data-toggle>${l}</button>`).join("")}</div></div>`;
+  h+=`</div></div>`;
+  box.innerHTML=h;
+  box.addEventListener("click",e=>{const b=e.target.closest("[data-k]"); if(!b) return; const k=b.dataset.k;
+    if(b.hasAttribute("data-toggle")) a[k]=!a[k]; else a[k]= ["peau","cCheveux","cHaut","cBas"].includes(k) ? +b.dataset.v : b.dataset.v; render();});
+  render();
+}
+
+/* ---------- badge ---------- */
+const BADGE_COL=["#2f6fd6","#22a058","#c43d6c","#f2851d","#7a4fd8","#0f9da3","#1f3a7a"];
+function initials(n){ return (n||"?").replace(/\b(SAS|SARL|EURL|SA)\b/gi,"").trim().split(/[\s'’-]+/).filter(Boolean).slice(0,2).map(w=>w[0].toUpperCase()).join("") || "?"; }
+function badgeHTML(big){
+  const b=S.badge||{}, col=b.couleur||BADGE_COL[0], f=F();
+  const logo = b.logo ? `<img src="${b.logo}" alt="Logo" style="width:100%;height:100%;object-fit:contain">` : `<span style="font-family:var(--f-display);font-weight:800;font-size:1.6em;color:${col}">${esc(initials(f.entreprise))}</span>`;
+  return `<div class="badgecard" style="--bc:${col};${big?"":"font-size:.8rem"}">
+    <div class="bc-top"><div class="bc-logo">${logo}</div><div class="bc-ent">${esc(f.entreprise||"Mon entreprise")}<small>${esc(f.ville||"")}</small></div></div>
+    <div class="bc-av">${avatarSVG(S.avatar,false)}</div>
+    <div class="bc-name">${esc(S.profil.prenom||"Prénom")}</div>
+    <div class="bc-role">${esc(b.role||"Stagiaire")}</div>
+    <div class="bc-foot">CAP Équipier polyvalent du commerce<br>Lycée Jean Hanzelet · du 01/02 au 20/02/2027</div></div>`;
+}
+function badgeBuilder(box){
+  S.badge=S.badge||{couleur:BADGE_COL[0],role:"Stagiaire",logo:""}; const b=S.badge;
+  box.innerHTML=`<div class="av-builder"><div id="bprev" style="display:flex;justify-content:center"></div><div class="av-ctrl">
+    <div><div class="lab">Couleur de l'entreprise</div><div class="chips">${BADGE_COL.map(c=>`<button class="sw" style="background:${c}" data-bc="${c}" aria-label="Couleur ${c}"></button>`).join("")}</div><small class="muted">Choisis la couleur principale du logo ou de l'enseigne.</small></div>
+    <div><div class="lab">Ma fonction</div><div class="chips">${["Stagiaire","Stagiaire en vente","Stagiaire en mise en rayon","Stagiaire équipier(e)"].map(r=>`<button class="chip" data-role="${r}">${r}</button>`).join("")}</div></div>
+    <div><div class="lab">Logo</div><p class="small muted">Sans image, le badge affiche les initiales de l'entreprise. Tu peux ajouter une image du logo trouvée sur le site de l'entreprise (fichier PNG ou JPG).</p>
+      <div class="row"><label class="btn ghost" for="b-logo">Ajouter une image</label><input type="file" id="b-logo" accept="image/*" hidden><button class="btn ghost" id="b-nologo">Utiliser les initiales</button></div></div>
+    <p class="small muted">Ce badge est un travail de classe. Ce n'est pas un vrai badge de l'entreprise.</p></div></div>`;
+  const render=()=>{ $("#bprev",box).innerHTML=badgeHTML(true); box.querySelectorAll("[data-bc]").forEach(x=>x.setAttribute("aria-pressed",String(x.dataset.bc===b.couleur))); box.querySelectorAll("[data-role]").forEach(x=>x.setAttribute("aria-pressed",String(x.dataset.role===b.role))); save(); };
+  box.addEventListener("click",e=>{const c=e.target.closest("[data-bc]"); if(c){b.couleur=c.dataset.bc; render();} const r=e.target.closest("[data-role]"); if(r){b.role=r.dataset.role; render();}});
+  $("#b-nologo",box).onclick=()=>{b.logo=""; render();};
+  $("#b-logo",box).onchange=e=>{const file=e.target.files[0]; if(!file) return; const fr=new FileReader(); fr.onload=()=>{const img=new Image(); img.onload=()=>{const k=Math.min(1,180/Math.max(img.width,img.height)); const cv=document.createElement("canvas"); cv.width=Math.round(img.width*k); cv.height=Math.round(img.height*k); cv.getContext("2d").drawImage(img,0,0,cv.width,cv.height); b.logo=cv.toDataURL("image/png"); render();}; img.src=fr.result;}; fr.readAsDataURL(file);};
+  render();
+}
+
+/* ---------- étapes : contenu ---------- */
+const M = [
+ {id:"m0", titre:"Mon avatar et mon entreprise", pdf:"Prépare la mission 1 : Je présente mon entreprise", digit:"0",
+  intro:()=>`Crée ton avatar, puis remplis la fiche de ton vrai lieu de stage. Cherche les informations sur le site de l'entreprise, sur sa fiche Google ou demande à ton enseignante. Tout le reste du jeu utilisera ta fiche.`,
+  qs:[
+   {id:"m0a",lv:1,type:"avatar",noScore:true,q:()=>"Crée ton avatar. Écris ton prénom, puis habille-le comme tu veux. Tu le prépareras pour le premier jour à l'étape 3."},
+   {id:"m0b",lv:1,type:"fiche",noScore:true,q:()=>"Remplis la fiche de ton entreprise de stage.",hint:"Tape le nom du magasin et la ville dans un moteur de recherche : la fiche Google donne l'adresse, les horaires et souvent le téléphone."},
+   {id:"m0k",lv:1,type:"badge",noScore:true,q:()=>"Conçois ton badge de stagiaire chez "+ent()+" : la couleur de l'entreprise, ta fonction et le logo. Il sera dans ton kit PFMP."},
+   {id:"m0c",lv:1,type:"multi",q:()=>"Où peux-tu trouver des informations fiables sur "+ent()+" ?",opts:["Le site internet de l'entreprise","Sa fiche sur Google Maps","Ton enseignante ou ta convention de stage","Une rumeur entendue dans le bus"],ok:[0,1,2],hint:"Une seule réponse n'est pas fiable.",expl:"Le site, la fiche Google et la convention de stage sont des sources fiables. Une rumeur ne l'est pas."},
+   {id:"m0d",lv:1,type:"qcm",q:()=>"« Quelle est l'activité de l'entreprise ? » Cela veut dire :",opts:["Ce qu'elle vend ou le service qu'elle propose", "Son adresse et ses horaires d'ouverture", "Le type de clients qui viennent"],ok:0,hint:"Pense à la question : « Ce magasin, il fait quoi ? »",expl:"L'activité, c'est ce que fait l'entreprise : par exemple « vente de produits alimentaires et d'hygiène »."},
+   {id:"m0e",lv:1,type:"qcm",q:()=>"Les clients de "+ent()+", ce sont :",opts:["Les personnes qui achètent les produits du magasin", "Les fournisseurs qui livrent la marchandise", "Les salariés qui travaillent en caisse"],ok:0,hint:"Le client achète, le fournisseur livre.",expl:"Le client achète. Le fournisseur livre la marchandise. Le salarié travaille dans le magasin."},
+   {id:"m0h",lv:2,type:"qcm",q:()=>"L'enseigne d'un magasin, c'est :",opts:["Le nom commercial que voient les clients (ex. Intermarché, Kiabi)", "Le nom officiel écrit sur la convention (ex. SAS Macellum)", "Le logo seul, sans le nom"],ok:0,expl:"L'enseigne est le nom commercial du magasin. La raison sociale est son nom officiel (ex. SAS Macellum)."},
+   {id:"m0f",lv:1,type:"write",min:12,q:()=>"Décris les clients de "+ent()+" : qui vient y acheter, et pourquoi ?",ph:"Exemple : Les clients sont des familles du quartier qui viennent faire leurs courses de la semaine…",crit:"Type de clients (âge, familles, professionnels…) et raison de leur venue."},
+   {id:"m0g",lv:2,type:"write",min:45,q:()=>"Rédige la fiche de présentation de ton entreprise en 5 phrases : nom, activité, produits, clients, horaires. Tu l'emporteras pour ta mission 1.",ph:"Je fais mon stage chez…",crit:"Les 5 éléments de la mission 1 sont présents, phrases complètes."},
+   {id:"m0i",lv:3,type:"write",min:30,q:()=>"Qu'est-ce qui différencie "+ent()+" d'un autre magasin du même secteur ? Parle des produits, des prix et des services (livraison, drive, carte de fidélité…).",ph:"Par rapport à…, "+"mon entreprise…",crit:"Au moins deux différences précises (produits, prix, services)."},
+   {id:"m0j",lv:3,type:"qcm",q:()=>"Le « drive » ou le « click & collect », c'est :",opts:["Le client commande en ligne et vient chercher ses courses au magasin", "Le client commande en ligne et se fait livrer chez lui", "Le client scanne lui-même ses articles en caisse"],ok:0,expl:"Le client commande sur internet, l'équipe prépare la commande, le client la retire au magasin."}
+  ]},
+ {id:"m1", titre:"Je me présente au tuteur", pdf:"Prépare la mission 4 : Je découvre le métier", digit:"1",
+  intro:()=>`Le premier jour, ${tut()} va t'accueillir. Les premières secondes comptent : bonjour, ton nom, ta formation, tes dates de stage. Tu vas construire ta présentation, puis t'entraîner à l'oral.`,
+  qs:[
+   {id:"m1a",lv:1,type:"qcm",q:()=>"Tu arrives chez "+ent()+". Que dis-tu en premier à "+tut()+" ?",opts:()=>[salut()+", je suis "+prenom()+", élève de CAP au lycée Jean Hanzelet. Je viens pour mon stage.","Bonjour ! Je suis le stagiaire du lycée, on m'a dit de venir ici.","Bonjour, vous êtes le responsable ? Je commence à quelle heure ?"],ok:0,hint:"On dit bonjour, son prénom et pourquoi on vient.",expl:"On salue poliment, on donne son prénom et la raison de sa venue."},
+   {id:"m1b",lv:1,type:"multi",q:()=>"Qu'est-ce qu'on dit quand on se présente à son tuteur ?",opts:["Mon nom et mon prénom","Ma formation : CAP Équipier polyvalent du commerce","Les dates de mon stage","Ce que j'aimerais apprendre","Mes notes de maths","Mes problèmes avec mes copains"],ok:[0,1,2,3],hint:"Garde seulement ce qui concerne le stage.",expl:"Nom, formation, dates et ce que tu veux apprendre. Le reste est personnel."},
+   {id:"m1c",lv:1,type:"order",q:()=>"Remets ta présentation dans l'ordre.",items:()=>[salut()+".","Je m'appelle "+prenom()+", je suis en 1re année de CAP Équipier polyvalent du commerce au lycée Jean Hanzelet.","Je suis en stage chez "+ent()+" du 1er au 20 février 2027.","J'aimerais apprendre à mettre en rayon et à accueillir les clients.","Merci de m'accueillir dans votre équipe."],hint:"On commence par saluer et on finit par remercier.",expl:"Saluer, se nommer, dire ses dates, dire ce qu'on veut apprendre, remercier."},
+   {id:"m1d",lv:1,type:"oral",q:()=>"Entraîne-toi à l'oral en binôme. Ton binôme joue le rôle de "+tut()+" et coche ce que tu fais bien. Tu peux aussi t'enregistrer sur Vocaroo, comme pour ton interview de retour de stage, et coller le lien.",items:["Je dis bonjour en regardant la personne","Je donne mon prénom et mon nom","Je dis ma formation et mon lycée","Je donne les dates de mon stage","Je dis ce que j'aimerais apprendre","Je parle assez fort, sans mains dans les poches","Je remercie à la fin"],need:5,hint:"Il faut au moins 5 cases cochées pour réussir.",expl:"Si une case n'est pas cochée, recommence ta présentation en y faisant attention."},
+   {id:"m1e",lv:1,type:"qcm",q:()=>"Avec ton tuteur, tu dois :",opts:["Le vouvoyer, sauf s'il te propose de le tutoyer", "Le tutoyer s'il est jeune", "Faire comme les autres salariés de l'équipe"],ok:0,hint:"C'est un adulte et un professionnel.",expl:"Au travail, on vouvoie son tuteur. S'il te propose le tutoiement, tu peux accepter."},
+   {id:"m1f",lv:1,type:"qcm",q:()=>"Pour ta mission 4, tu poses tes questions à ton tuteur. Quelle façon de demander est la plus professionnelle ?",opts:["« Excusez-moi, quand vous aurez un moment, est-ce que je pourrais vous poser quelques questions sur votre métier ? »", "« Bonjour, je dois vous poser 4 questions pour le lycée, c'est obligatoire. »", "Attendre le dernier jour pour poser toutes les questions d'un coup"],ok:0,hint:"On choisit le bon moment et on demande poliment.",expl:"On demande poliment et on choisit un moment où le tuteur est disponible, jamais pendant qu'il s'occupe d'un client."},
+   {id:"m1g",lv:2,type:"write",min:35,q:()=>"Écris ta présentation complète pour "+tut()+", avec tes mots. Tu la retrouveras dans ton kit PFMP.",ph:()=>salut()+", je m'appelle…",crit:"Salutation, nom, formation, dates, ce que l'élève veut apprendre, remerciement."},
+   {id:"m1h",lv:2,type:"qcm",q:()=>"Ton tuteur te demande : « Pourquoi as-tu choisi le commerce ? » Quelle réponse est la meilleure ?",opts:["« J'aime le contact avec les clients et j'aimerais apprendre à organiser un rayon. »", "« C'était le seul CAP où il restait de la place. »", "« Parce que c'est un métier facile. »"],ok:0,expl:"Une bonne réponse est honnête et montre ce qui t'intéresse dans le métier."},
+   {id:"m1j",lv:3,type:"qcm",q:()=>"Ton tuteur te présente à l'équipe le premier matin. Que fais-tu ?",opts:["Je dis bonjour à chacun, je retiens les prénoms et je les note dans mon carnet", "Je dis un « bonjour » général à tout le groupe", "J'attends que chacun vienne se présenter à moi"],ok:0,expl:"Retenir les prénoms montre ton intérêt. Les noter t'aide les premiers jours."},
+   {id:"m1i",lv:3,type:"write",min:20,q:()=>"Ajoute une 5e question à toi pour ton tuteur, en plus des 4 de ta mission 4, et explique pourquoi tu veux la poser.",ph:"Ma question : … Je veux la poser parce que…",crit:"Question polie, en lien avec le métier, et justifiée."}
+  ]},
+ {id:"m2", titre:"Mon premier jour", pdf:"Tenue, documents, trajet, horaires", digit:"0",
+  intro:()=>`Habille ton avatar pour ton premier jour chez ${ent()}, puis prépare tes documents, ton heure d'arrivée et ton trajet.`,
+  qs:[
+   {id:"m2a",lv:1,type:"dress",q:()=>"Habille ton avatar pour son premier jour chez "+ent()+" ("+SECTEURS[sect()].nom.toLowerCase()+").",hint:"Pense : propre, simple, chaussures fermées, rien qui gêne le travail. Ton tuteur te dira si l'entreprise fournit une tenue.",expl:"Le premier jour, demande à ton tuteur s'il y a une tenue ou un gilet de l'entreprise."},
+   {id:"m2b",lv:1,type:"multi",q:()=>"Qu'est-ce que tu mets dans ton sac le premier jour ?",opts:["Ma convention de stage","Les 4 missions de ma fiche PFMP","Un stylo et un petit carnet","L'adresse et le téléphone de l'entreprise","Ma console de jeux","Un paquet de chips à manger en rayon"],ok:[0,1,2,3],hint:"Tout ce qui sert au travail, rien pour jouer.",expl:"Convention, fiche des missions, de quoi noter, adresse et téléphone. Le reste reste à la maison."},
+   {id:"m2c",lv:1,type:"qcm",q:()=>"Ton stage commence à "+fmt(debut())+". À quelle heure arrives-tu ?",opts:()=>[fmt(debut()-10),fmt(debut()),fmt(debut()-45)],ok:0,hint:"On arrive un peu en avance, pas à la dernière seconde.",expl:"On arrive 5 à 10 minutes avant. Trop tôt, le magasin n'est peut-être pas ouvert et l'équipe n'est pas prête à t'accueillir."},
+   {id:"m2d",lv:1,type:"trajet",q:()=>"Prépare ton vrai trajet jusqu'à "+ent()+(F().ville?" à "+F().ville:"")+". Cherche le temps de trajet sur une carte en ligne ou sur le site des bus.",hint:"Heure de départ = heure de début − temps de trajet − 10 minutes d'avance.",expl:"Fais le trajet une fois pendant les vacances pour vérifier."},
+   {id:"m2e",lv:1,type:"qcm",q:()=>"Tu as raté ton bus, tu vas être en retard. Que fais-tu ?",opts:()=>["J'appelle "+tut()+" avant l'heure pour prévenir, puis je préviens le lycée","J'envoie un SMS au lycée pour qu'il prévienne l'entreprise","J'arrive dès que possible et je m'excuse en arrivant"],ok:0,hint:"Il faut prévenir avant, par téléphone.",expl:"C'est à toi de prévenir l'entreprise, par téléphone et avant l'heure. Ensuite, tu préviens le lycée."},
+   {id:"m2f",lv:2,type:"num",q:()=>{const h=heuresJour(); return `Tes horaires de stage sont : ${h.txt}, ${F().jours||5} jours par semaine. Combien d'heures travailles-tu par semaine ?`+(h.perso?"":" (exemple, car ta fiche n'a pas tous tes horaires)");},ok:()=>heuresJour().min*(+F().jours||5)/60,unit:"heures",expl:()=>{const h=heuresJour(), j=+F().jours||5; return `${h.min/60} h par jour × ${j} jours = ${h.min*j/60} h par semaine.`;}},
+   {id:"m2g",lv:2,type:"qcm",q:()=>"Tu es malade le mardi matin. Que fais-tu ?",opts:["Je préviens l'entreprise et le lycée le matin même, et je donne un justificatif (certificat médical)", "Je préviens seulement le lycée, il s'occupe de prévenir l'entreprise", "Je préviens l'entreprise le lendemain, en revenant"],ok:0,expl:"Une absence se prévient le jour même, à l'entreprise et au lycée, et se justifie."},
+   {id:"m2i",lv:3,type:"qcm",q:()=>"Qui signe ta convention de stage ?",opts:["Le lycée, l'entreprise, toi et ta famille si tu es mineur(e)", "Le lycée et l'entreprise seulement", "L'entreprise et toi seulement"],ok:0,expl:"La convention est signée par toutes les parties. Sans elle, tu ne peux pas commencer ton stage."},
+   {id:"m2j",lv:3,type:"num",q:()=>"Tu pars à 7 h 35. Ton trajet dure 40 minutes. Ton stage commence à 8 h 30. Combien de minutes d'avance auras-tu ?",ok:()=>15,unit:"minutes",expl:()=>"7 h 35 + 40 min = 8 h 15. De 8 h 15 à 8 h 30, il y a 15 minutes."},
+   {id:"m2h",lv:3,type:"write",min:25,q:()=>"Écris ce que tu dis au téléphone à "+tut()+" pour prévenir d'un retard.",ph:()=>salut()+", c'est "+prenom()+", le stagiaire…",crit:"Salutation, se nommer, motif, heure d'arrivée prévue, excuse."}
+  ]},
+ {id:"m3", titre:"La sécurité dans la réserve", pdf:"Rappels sur la réserve + check-list à faire sur place", digit:"2",
+  intro:()=>`Tu as déjà travaillé sur la réserve en classe. Chez ${ent()}, tu retrouveras les mêmes dangers : charges lourdes, allées encombrées, cutter, hauteur. Montre que tu sais travailler en sécurité.`,
+  qs:[
+   {id:"m3a",lv:1,type:"tri",cats:["Danger","Sans danger"],q:()=>"Danger ou sans danger ?",items:[["Un carton posé au milieu de l'allée",0],["Le cutter rangé, lame rentrée",1],["Monter sur un carton pour attraper en hauteur",0],["Une issue de secours bloquée par des palettes",0],["Les produits lourds rangés en bas du rayonnage",1],["Porter un carton de 25 kg le dos rond",0]],hint:"Demande-toi : est-ce que quelqu'un peut tomber, se couper ou se faire mal au dos ?",expl:"Une allée dégagée, des issues libres et des charges lourdes en bas évitent les accidents."},
+   {id:"m3b",lv:1,type:"qcm",q:()=>"Pour soulever un carton lourd :",opts:["Dos droit, jambes fléchies, carton contre le corps", "Dos droit, jambes tendues, bras tendus", "Dos penché, jambes fléchies, carton loin du corps"],ok:0,hint:"Ce sont les jambes qui travaillent, pas le dos.",expl:"Gestes et postures : dos droit, jambes fléchies, charge contre le corps."},
+   {id:"m3c",lv:1,type:"sector",q:null},
+   {id:"m3d",lv:1,type:"terrain",noScore:true,q:()=>"À vérifier chez "+ent()+" pendant ta première semaine. Ces cases seront dans ton kit PFMP : tu les coches sur place.",items:["Où est la sortie de secours la plus proche de la réserve ?","Où est l'extincteur ?","Où est la trousse de secours ?","Qui est sauveteur secouriste du travail (SST) ?","Quelles chaussures ou quels gants je dois porter ?","Ai-je le droit d'utiliser le cutter, le transpalette, l'escabeau ?"]},
+   {id:"m3e",lv:1,type:"qcm",q:()=>"Pour prendre un article rangé en hauteur :",opts:["J'utilise un escabeau ou un marchepied en bon état", "Je monte sur la première étagère, elle est solide", "Je demande à un collègue de me tenir pendant que je monte sur un carton"],ok:0,expl:"On utilise toujours un escabeau ou un marchepied en bon état."},
+   {id:"m3f",lv:1,type:"qcm",q:()=>"Avec un cutter, je coupe :",opts:["Vers l'extérieur, loin de mon corps, et je rentre la lame après", "Vers moi, en tenant bien le carton avec l'autre main", "Avec la lame sortie au maximum pour couper plus vite"],ok:0,expl:"On coupe loin du corps et on rentre la lame à chaque fois."},
+   {id:"m3g",lv:2,type:"qcm",q:()=>"Rappel : FIFO veut dire…",opts:["Premier entré, premier sorti", "Dernier entré, premier sorti", "Premier arrivé, premier rangé en haut"],ok:0,expl:"First In, First Out : les produits arrivés en premier sortent en premier."},
+   {id:"m3h",lv:2,type:"qcm",q:()=>"Un collègue propose de te pousser assis sur le transpalette. Tu…",opts:["Refuses : on ne transporte jamais une personne sur un transpalette", "Acceptes si la réserve est vide", "Acceptes si ton tuteur est d'accord"],ok:0,expl:"Le transpalette sert aux charges, jamais aux personnes, même avec l'accord de quelqu'un."},
+   {id:"m3i",lv:2,type:"qcm",q:()=>"Tu te coupes légèrement avec le cutter. Que fais-tu ?",opts:["Je préviens mon tuteur tout de suite, même si c'est petit", "Je mets un pansement de ma trousse et je continue", "J'attends la pause pour en parler"],ok:0,expl:"Toute blessure se signale tout de suite au tuteur, même petite : il fait soigner et note l'accident (c'est un accident du travail)."},
+   {id:"m3j",lv:2,type:"qcm",q:()=>"Les panneaux qui indiquent la sortie de secours sont de quelle couleur ?",opts:["Vert", "Rouge", "Orange"],ok:0,expl:"Vert : évacuation et secours. Rouge : matériel incendie. Jaune ou orange : danger."},
+   {id:"m3k",lv:3,type:"qcm",q:()=>"Un panneau rouge dans le magasin signale :",opts:["Le matériel de lutte contre l'incendie (extincteur, alarme)", "La sortie de secours", "Un danger (attention, risque de chute)"],ok:0,expl:"Rouge : matériel incendie. Vert : évacuation et secours."},
+   {id:"m3l",lv:3,type:"write",min:30,q:()=>"Explique à un nouveau stagiaire comment soulever un carton lourd sans se blesser, en 4 étapes.",ph:"1. Je m'approche du carton… 2. … 3. … 4. …",crit:"Approche, jambes fléchies, dos droit, charge près du corps, se relever avec les jambes, demander de l'aide si trop lourd."}
+  ]},
+ {id:"m4", titre:"Pro ou pas pro ?", pdf:"Prépare la mission 3 : Je participe à une tâche", digit:"2",
+  intro:()=>`Ton tuteur observe aussi ton attitude : politesse, ponctualité, motivation. Trie les situations, puis choisis la bonne réaction.`,
+  qs:[
+   {id:"m4a",lv:1,type:"tri",cats:["Pro","Pas pro"],q:()=>"Pro ou pas pro ?",items:[["Regarder son téléphone devant les clients",1],["Dire bonjour à toute l'équipe en arrivant",0],["Demander quand on ne sait pas",0],["Manger dans le rayon",1],["Partir 15 minutes plus tôt sans prévenir",1],["Noter les consignes dans son carnet",0],["Parler mal d'un collègue devant un client",1],["Proposer son aide quand on a fini",0]],hint:"Imagine que tu es le tuteur : est-ce que ça te plairait ?",expl:"Politesse, curiosité et sérieux, c'est pro. Téléphone, retard et critiques, ça ne l'est pas."},
+   {id:"m4b",lv:1,type:"qcm",q:()=>"Tu as fini ta tâche et personne ne te donne de travail. Tu…",opts:()=>["Vas voir "+tut()+" : « J'ai terminé, que puis-je faire maintenant ? »","Attends qu'on vienne te donner du travail","Recommences la même tâche pour t'occuper"],ok:0,hint:"C'est écrit sur ta fiche PFMP, mission 3.",expl:"« Je demande à mon tuteur ce que je peux faire » : c'est sur ta fiche de missions."},
+   {id:"m4c",lv:1,type:"qcm",q:()=>"Pour ta mission 2, tu veux prendre une photo du rayon. Tu…",opts:["Demandes d'abord l'autorisation à ton tuteur", "Prends la photo sans client dedans, c'est autorisé", "Prends la photo si le rayon est bien rangé"],ok:0,hint:"Regarde le rappel en bas de ta fiche PFMP.",expl:"On demande avant de prendre une photo. Et on ne publie rien sur l'entreprise."},
+   {id:"m4d",lv:1,type:"qcm",q:()=>"Ton tuteur te fait une remarque sur ton travail. Tu…",opts:["Écoutes, remercies et corriges", "Expliques tout de suite pourquoi tu as fait comme ça", "Dis « d'accord » et continues comme avant"],ok:0,expl:"Une remarque aide à progresser. On écoute, on remercie et on corrige."},
+   {id:"m4e",lv:1,type:"qcm",q:()=>"Un client te pose une question et tu ne connais pas la réponse. Tu dis :",opts:["« Je vais chercher un collègue qui pourra vous renseigner. »", "« Je pense que c'est au rayon d'à côté. » (sans en être sûr)", "« Je suis stagiaire, je ne peux pas vous aider. »"],ok:0,expl:"On ne donne pas une réponse dont on n'est pas sûr : on accompagne le client vers quelqu'un qui sait."},
+   {id:"m4h",lv:2,type:"qcm",q:()=>"Ton tuteur te donne une consigne que tu n'as pas comprise. Tu…",opts:["Reformules : « Si j'ai bien compris, je dois… ? » et tu redemandes", "Demandes à un autre stagiaire ce qu'il a compris", "Commences, et tu verras bien en avançant"],ok:0,expl:"Reformuler permet de vérifier qu'on a bien compris avant de commencer."},
+   {id:"m4f",lv:2,type:"tri",cats:["Pro","Pas pro"],q:()=>"Encore plus difficile : pro ou pas pro ?",items:[["Garder ses écouteurs pendant le rangement",1],["Respecter l'heure de fin de pause",0],["Poster une photo de la réserve sur les réseaux",1],["Ranger son poste avant de partir",0],["Tutoyer un client âgé",1],["Prévenir quand on a fait une erreur",0]],expl:"Ce qui se passe dans l'entreprise reste dans l'entreprise. Et on reconnaît ses erreurs."},
+   {id:"m4g",lv:3,type:"write",min:30,q:()=>"Choisis une situation « pas pro » et explique ce qu'il aurait fallu faire chez "+ent()+".",ph:"Situation : … Il aurait fallu…",crit:"Situation identifiée, attitude correcte expliquée, lien avec l'entreprise."},
+   {id:"m4i",lv:3,type:"qcm",q:()=>"Un client s'énerve : le produit en promotion est épuisé. Tu…",opts:["Restes calme, t'excuses de la gêne et appelles ton tuteur ou un responsable", "Lui conseilles de revenir la semaine prochaine", "Lui expliques que ce n'est pas de ta faute"],ok:0,expl:"On garde son calme, on écoute, on s'excuse pour la gêne et on passe le relais à un responsable."}
+  ]},
+ {id:"m5", titre:"J'observe et je raconte", pdf:"Prépare les missions 2, 3 et 4", digit:"7",
+  intro:()=>`En stage, tu devras observer le magasin, raconter une tâche (« Ce que j'ai fait / Comment / Ce que j'ai appris ») et interroger ton tuteur. Entraîne-toi maintenant.`,
+  qs:[
+   {id:"m5a",lv:1,type:"qcm",q:()=>"La « tête de gondole », c'est :",opts:["Le bout d'un rayon, face à l'allée, souvent pour les promotions", "Le haut d'une étagère, pour les produits en stock", "L'entrée du magasin, près des caisses"],ok:0,hint:"C'est très visible pour le client.",expl:"La tête de gondole est le bout du rayon. On y met souvent les promotions et les nouveautés."},
+   {id:"m5b",lv:1,type:"tri",cats:["Ce que j'ai fait","Comment","Ce que j'ai appris"],q:()=>"Range chaque phrase dans la bonne partie de ta fiche (mission 3).",items:[["J'ai mis en rayon des paquets de pâtes.",0],["J'ai mis les produits les plus anciens devant.",1],["J'ai appris à lire une date de consommation.",2],["J'ai posé des étiquettes prix.",0],["J'ai vérifié que chaque étiquette correspond au produit.",1],["J'ai appris que le rayon doit toujours être plein et propre.",2]],hint:"Fait = l'action. Comment = la méthode. Appris = ce que tu sais maintenant.",expl:"Fait : l'action. Comment : la méthode utilisée. Appris : ce que tu retiens."},
+   {id:"m5c",lv:1,type:"qcm",q:()=>"Pour la mission 2, quels affichages peux-tu observer dans "+ent()+" ?",opts:["Les étiquettes prix, les affiches de promotion, les panneaux de rayon", "Le planning de l'équipe affiché en salle de pause", "Les bons de livraison rangés dans la réserve"],ok:0,expl:"Tu observes ce que voit le client : prix, promotions, panneaux de rayon. Le reste est confidentiel."},
+   {id:"m5d",lv:1,type:"qcm",q:()=>"Quelle phrase est la plus précise pour ta fiche ?",opts:["« J'ai mis en rayon 2 cartons de conserves en appliquant le FIFO. »", "« J'ai fait de la mise en rayon toute la matinée. »", "« J'ai aidé au rayon conserves. »"],ok:0,expl:"Une bonne phrase dit quoi, combien et comment."},
+   {id:"m5e",lv:1,type:"qcm",q:()=>"La PLV, c'est :",opts:["La publicité sur le lieu de vente : présentoirs, affiches, stop-rayons", "Le prix le plus bas du rayon", "La liste des produits à commander"],ok:0,expl:"PLV = publicité sur le lieu de vente. Elle attire l'œil du client sur un produit."},
+   {id:"m5h",lv:2,type:"qcm",q:()=>"Faire le « facing », c'est :",opts:["Avancer et aligner les produits au bord du rayon pour qu'il paraisse plein", "Ranger les produits du moins cher au plus cher", "Compter les produits pour l'inventaire"],ok:0,expl:"Le facing rend le rayon propre et attirant : les produits sont alignés, étiquette face au client."},
+   {id:"m5i",lv:2,type:"qcm",q:()=>"Le « linéaire », c'est :",opts:["La longueur de rayon où sont présentés les produits", "La liste des produits par ordre alphabétique", "L'allée principale du magasin"],ok:0,expl:"Le linéaire se mesure en mètres : c'est l'espace de présentation des produits."},
+   {id:"m5f",lv:2,type:"order",q:()=>"En fin de journée, tu rends compte à ton tuteur. Remets dans l'ordre.",items:()=>["J'ai terminé la mise en rayon de l'allée 4.","J'ai rangé les cartons vides.","Il reste 2 colis à contrôler.","Est-ce que je peux faire autre chose avant de partir ?"],expl:"Ce qui est fini, ce qui est rangé, ce qui reste, puis on propose son aide."},
+   {id:"m5g",lv:3,type:"write",min:45,q:()=>"Imagine une tâche que tu feras chez "+ent()+" et remplis la fiche : Ce que j'ai fait / Comment j'ai fait / Ce que j'ai appris.",ph:"Ce que j'ai fait : … Comment : … Ce que j'ai appris : …",crit:"Les trois parties sont présentes, vocabulaire professionnel, tâche réaliste pour le secteur."},
+   {id:"m5j",lv:3,type:"write",min:30,q:()=>"Décris l'organisation d'un rayon que tu connais : où sont les promotions, les produits les plus chers, les premiers prix ? Pourquoi à ces places ?",ph:"Dans le rayon…, les promotions sont…",crit:"Repère au moins 2 emplacements (tête de gondole, hauteur des yeux, bas du rayon) et explique pourquoi."}
+  ]}
+];
+const SECTOR_Q = {
+  alim:{q:"Dans le rayon frais, tu trouves un yaourt dont la date limite (DLC) est dépassée. Tu…",opts:["Le retires du rayon et préviens ton tuteur","Le laisses, quelqu'un le prendra","Le manges pour ne pas le gaspiller"],expl:"Un produit à DLC dépassée ne doit plus être vendu : on le retire et on prévient."},
+  brico:{q:"Tu dois mettre en rayon une palette de sacs de terreau ou de croquettes de 20 kg. Tu…",opts:["Approches la palette au plus près avec le transpalette et portes chaque sac dos droit, jambes fléchies","Portes deux sacs à la fois pour aller plus vite","Fais glisser les sacs par terre en les tirant"],expl:"On rapproche la charge avec le transpalette, on porte un sac à la fois, dos droit, et on demande de l'aide si c'est trop lourd."},
+  mode:{q:"Une pile de boîtes à chaussures est en hauteur dans la réserve. Tu…",opts:["Prends l'escabeau et descends les boîtes une par une","Tires la boîte du bas","Grimpes sur les cartons"],expl:"On utilise l'escabeau et on ne tire jamais une boîte du bas d'une pile."},
+  sport:{q:"Tu dois déplacer un vélo carton très encombrant. Tu…",opts:["Demandes de l'aide et le portes à deux, dos droit","Le traînes seul(e) par terre","Le portes au-dessus de ta tête"],expl:"Une charge lourde ou encombrante se porte à deux, en respectant les gestes et postures."},
+  maison:{q:"Un carton de vaisselle est tombé : il y a du verre cassé. Tu…",opts:["Mets des gants, ramasses avec balai et pelle, et préviens ton tuteur","Ramasses à mains nues","Pousses les morceaux sous le rayon"],expl:"Gants, balai et pelle. Et on prévient : la casse est notée en démarque."},
+  autre:{q:"Un carton bloque l'issue de secours de la réserve. Tu…",opts:["Le déplaces et préviens ton tuteur","Le laisses, ce n'est pas à toi","Mets un autre carton dessus"],expl:"Une issue de secours doit toujours rester libre."}
+};
+function resolveQ(q){
+  if(q.type==="sector"){ const d=SECTOR_Q[sect()]; return Object.assign({},q,{type:"qcm",q:()=>d.q+" ("+SECTEURS[sect()].nom+")",opts:d.opts,ok:0,expl:d.expl,hint:"Pense d'abord à ta sécurité, puis préviens."}); }
+  return q;
+}
+const val = v => typeof v==="function"?v():v;
+
+/* ---------- navigation ---------- */
+const VIEWS=["qui","accueil","etapes","mission","missions","lexique","valise","bilan","enseignant"];
+function go(v){ if(!VIEWS.includes(v)) v="accueil"; if(v==="mission" && !RUN) v="etapes";
+  VIEWS.forEach(x=>{$("#view-"+x).hidden = x!==v;});
+  document.querySelectorAll("nav.tabs button").forEach(b=>b.setAttribute("aria-current",String(b.dataset.go===v || (v==="mission"&&b.dataset.go==="etapes"))));
+  if(v==="accueil") renderHome(); if(v==="etapes") renderTags(); if(v==="qui") renderQui(); if(v==="lexique") renderLex(); if(v==="missions") renderMissions(); if(v==="valise") renderValise(); if(v==="bilan") renderBilan(); if(v==="enseignant") renderTeacher();
+  if(location.hash.slice(1)!==v && v!=="mission"){ try{history.replaceState(null,"","#"+v)}catch(e){} }
+  window.scrollTo(0,0); }
+document.addEventListener("click",e=>{const g=e.target.closest("[data-go]"); if(g){e.preventDefault(); go(g.dataset.go);} const s=e.target.closest("[data-say]"); if(s) sayBlock(s.dataset.say);});
+window.addEventListener("hashchange",()=>go(location.hash.slice(1)));
+function sayBlock(k){ if(k==="story") speak($("#view-accueil .story").innerText.replace("🔊 Écouter","")); if(k==="etapes") speak("Fais les étapes dans l'ordre. Chaque étape réussie ouvre la suivante et te donne un chiffre du cadenas de la valise."); }
+
+function pipHTML(n){return `<span class="pips" aria-label="${n} sur 3">${[1,2,3].map(i=>`<i class="pip ${i<=n?"on":""}"></i>`).join("")}</span>`}
+const lvlCard=(n,tag)=>`<${tag} class="lvl c-${LVCOL[n]}" ${tag==="button"?`data-lv="${n}"`:""}><span class="lh"><span class="ic">${ico(LVICO[n],24)}</span><b>${LV[n].nom}</b><span style="margin-left:auto">${pipHTML(n)}</span></span><span class="small">${LV[n].desc}</span></${tag}>`;
+function doneCount(){return M.filter(m=>S.missions[m.id]?.done).length;}
+function renderHome(){
+  $("#hero-avatar").innerHTML=avatarSVG(S.avatar,S.valise);
+  const n=doneCount();
+  $("#hero-bubble").textContent = !S.profil.prenom ? "Crée-moi à l'étape 1 !" : S.valise ? `Prêt(e), ${S.profil.prenom} !` : `Salut ${S.profil.prenom} ! ${n}/6 étapes`;
+  $("#hero-name").textContent = F().entreprise ? "Stage chez "+F().entreprise : "";
+  $("#levels-info").innerHTML=[1,2,3].map(n=>lvlCard(n,"div")).join("");
+}
+function unlocked(i){ return i===0 || (S.missions[M[i-1].id]&&S.missions[M[i-1].id].done); }
+function renderTags(){
+  $("#tags").innerHTML=M.map((m,i)=>{const r=S.missions[m.id], ok=r&&r.done, lock=!unlocked(i);
+    return `<button class="tag c-${COL[i]} ${ok?"done":""} ${lock?"locked":""}" data-m="${i}" ${lock?'aria-disabled="true"':""} aria-label="Étape ${i+1} : ${esc(m.titre)}">
+      <span class="th"><span class="num">${i+1}</span><span class="pic">${ico(MICO[i],30)}</span></span><h3>${m.titre}</h3><span class="pdf">${m.pdf}</span>
+      <span class="digit">${ok?`<span>${pipHTML(r.stars)} ${LV[r.stars].nom}</span><b>${m.digit}</b>`:`<span class="muted">${lock?"🔒 Finis l'étape "+i:"À toi de jouer !"}</span><b class="q">?</b>`}</span></button>`;}).join("");
+}
+$("#tags").addEventListener("click",e=>{const t=e.target.closest(".tag"); if(!t) return; const i=+t.dataset.m; if(!unlocked(i)) return; startMission(i);});
+
+/* ---------- moteur d'étape ---------- */
+let RUN=null;
+function startMission(i){
+  const m=M[i]; const v=$("#view-mission");
+  RUN={i,m,level:null};
+  const prev=S.missions[m.id];
+  v.className="view c-"+COL[i];
+  v.innerHTML=`${mhead(i,m.pdf,m.titre,"Retour aux étapes")}
+   <div class="qcard">${asker(m.intro())}<div class="row"><button class="say" id="say-intro">🔊 Écouter</button></div>
+   ${prev&&prev.done?`<p class="small muted">Déjà réussie au niveau ${LV[prev.stars].nom}. Tu peux la refaire à un niveau plus élevé.</p>`:""}
+   <h3>Choisis ton niveau</h3><div class="levels">${[1,2,3].map(n=>lvlCard(n,"button")).join("")}</div></div>`;
+  $("#say-intro").onclick=()=>speak(m.intro());
+  v.querySelectorAll("[data-lv]").forEach(b=>b.onclick=()=>{RUN.level=+b.dataset.lv; RUN.list=m.qs.filter(q=>q.lv<=RUN.level).map(resolveQ); RUN.k=0; RUN.score=0; RUN.total=0; showQ();});
+  go("mission");
+}
+function mhead(i,eyebrow,title,back){ return `<div class="mhead"><div class="mt"><span class="num">${i+1}</span><div class="stack" style="gap:0;min-width:0"><span class="eyebrow">${esc(eyebrow)}</span><h2>${esc(title)}</h2></div></div><button class="btn ghost" data-go="etapes">${back}</button></div>`; }
+function asker(text){ return `<div class="asker"><div class="mini">${avatarSVG(S.avatar,S.valise)}</div><div class="bubble">${esc(text)}</div></div>`; }
+function showQ(){
+  const v=$("#view-mission"), q=RUN.list[RUN.k], n=RUN.list.length;
+  RUN.validated=false;
+  v.innerHTML=`${mhead(RUN.i,RUN.m.titre+" · niveau "+LV[RUN.level].nom,"Question "+(RUN.k+1)+" sur "+n,"Quitter")}
+  <div class="progress"><i style="width:${(RUN.k+1)/n*100}%"></i></div>
+  <div class="qcard"><div class="row" style="align-items:flex-end;gap:8px"><div style="flex:1;min-width:0">${asker(val(q.q))}</div><button class="say" id="sayq" aria-label="Écouter la question">🔊</button></div>
+  <div id="qbody"></div><div id="qhint"></div><div id="qfb"></div>
+  <div class="qfoot"><span>${q.hint&&RUN.level===2?`<button class="btn ghost" id="btn-hint">Aide</button>`:""}</span><div class="row"><button class="btn" id="btn-val">Valider</button><button class="btn gold" id="btn-next" hidden>${RUN.k+1<n?"Question suivante":"Voir mon résultat"}</button></div></div></div>`;
+  const body=$("#qbody"); const checker=RENDER[q.type](q,body);
+  if(q.hint && RUN.level===1) $("#qhint").innerHTML=`<div class="hint"><b>Aide :</b> ${esc(q.hint)}</div>`;
+  const hb=$("#btn-hint"); if(hb) hb.onclick=()=>{$("#qhint").innerHTML=`<div class="hint"><b>Aide :</b> ${esc(q.hint)}</div>`; hb.remove();};
+  $("#sayq").onclick=()=>speak(val(q.q)+". "+(body.innerText||""));
+  $("#btn-val").onclick=()=>{
+    const r=checker(); if(r.incomplete){ $("#qfb").innerHTML=`<div class="fb ko"><b>Pas encore</b><span>${esc(r.msg)}</span></div>`; return; }
+    if(!RUN.validated && !q.noScore){ RUN.total++; if(r.ok) RUN.score++; }
+    RUN.validated=true; save();
+    const ex=val(q.expl);
+    $("#qfb").innerHTML=`<div class="fb ${r.ok?"ok":"ko"}"><b>${r.ok?(q.noScore?"C'est enregistré.":"Bravo, c'est juste."):"Pas tout à fait."}</b>${r.msg?`<span>${r.msg}</span>`:""}${ex?`<span>${esc(ex)}</span>`:""}</div>`;
+    $("#btn-next").hidden=false;
+    if(r.lock){ $("#btn-val").hidden=true; } else { $("#btn-val").textContent="Valider à nouveau"; }
+  };
+  $("#btn-next").onclick=()=>{ RUN.k++; if(RUN.k<RUN.list.length) showQ(); else endMission(); };
+  window.scrollTo(0,0);
+}
+function endMission(){
+  const {m,i,level,score,total}=RUN; const pct= total? score/total : 1; const ok=pct>=0.7;
+  const prev=S.missions[m.id];
+  if(ok){ if(!prev || !prev.done || level>=prev.stars) S.missions[m.id]={done:true,stars:level,score,total,date:new Date().toLocaleDateString("fr-FR")}; }
+  else if(!prev) S.missions[m.id]={done:false,stars:0,score,total,date:new Date().toLocaleDateString("fr-FR")};
+  save();
+  const conf= ok ? `<div class="confetti" aria-hidden="true">${Array.from({length:40},(_,k)=>`<i style="left:${Math.random()*100}%;background:var(--${["pink","blue","green","orange","purple","teal","sun"][k%7]});animation-delay:${(Math.random()*.8).toFixed(2)}s"></i>`).join("")}</div>`:"";
+  $("#view-mission").innerHTML=`<div class="qcard result">${conf}
+   <div style="width:130px">${avatarSVG(S.avatar,S.valise)}</div>
+   <h2 style="font-size:2.3rem">${ok?"Étape réussie !":"Encore un effort !"}</h2>
+   <p>Tu as ${score} bonne${score>1?"s":""} réponse${score>1?"s":""} sur ${total} au niveau ${LV[level].nom}.</p>
+   ${ok?`<p class="hand" style="font-size:1.6rem;color:var(--c)">Chiffre n° ${i+1} du cadenas :</p><div class="bigdigit">${m.digit}</div><p class="muted small">Note-le bien !</p>`:`<p>Il faut au moins 7 bonnes réponses sur 10. Relis les explications et recommence.</p>`}
+   <div class="row" style="justify-content:center">${ok?(i+1<M.length?`<button class="btn gold" id="next-m">Étape suivante</button>`:`<button class="btn gold" data-go="valise">Ouvrir la valise</button>`):`<button class="btn gold" id="retry">Recommencer</button>`}<button class="btn ghost" data-go="etapes">Mes étapes</button></div></div>`;
+  const nm=$("#next-m"); if(nm) nm.onclick=()=>startMission(i+1);
+  const rt=$("#retry"); if(rt) rt.onclick=()=>startMission(i);
+}
+
+/* ---------- rendus par type ---------- */
+const RENDER={
+ qcm(q,box){ const opts=val(q.opts); const order=shuffle(opts.map((_,i)=>i)); let pick=null;
+   box.innerHTML=`<div class="opts">${order.map((i,p)=>`<button class="opt" data-i="${i}" aria-pressed="false"><span class="box">${"ABCDEF"[p]}</span><span>${esc(opts[i])}</span></button>`).join("")}</div>`;
+   box.onclick=e=>{const b=e.target.closest(".opt"); if(!b||RUN.validated) return; pick=+b.dataset.i; box.querySelectorAll(".opt").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));};
+   return ()=>{ if(pick===null) return {incomplete:true,msg:"Choisis une réponse."}; box.querySelectorAll(".opt").forEach(x=>{const i=+x.dataset.i; if(i===q.ok) x.classList.add("good"); else if(i===pick) x.classList.add("bad");}); return {ok:pick===q.ok,lock:true}; }; },
+ multi(q,box){ const opts=val(q.opts); const order=shuffle(opts.map((_,i)=>i)); const sel=new Set();
+   box.innerHTML=`<p class="hand" style="font-size:1.3rem;color:var(--c)">Plusieurs réponses possibles !</p><div class="opts">${order.map(i=>`<button class="opt multi" data-i="${i}" aria-pressed="false"><span class="box">✓</span><span>${esc(opts[i])}</span></button>`).join("")}</div>`;
+   box.onclick=e=>{const b=e.target.closest(".opt"); if(!b||RUN.validated) return; const i=+b.dataset.i; sel.has(i)?sel.delete(i):sel.add(i); b.setAttribute("aria-pressed",String(sel.has(i)));};
+   return ()=>{ if(!sel.size) return {incomplete:true,msg:"Coche au moins une réponse."}; const good=new Set(q.ok); box.querySelectorAll(".opt").forEach(x=>{const i=+x.dataset.i; if(good.has(i)) x.classList.add("good"); else if(sel.has(i)) x.classList.add("bad");}); const ok=sel.size===good.size && [...sel].every(i=>good.has(i)); return {ok,lock:true,msg:ok?"":"Les bonnes réponses sont en vert."}; }; },
+ order(q,box){ const items=val(q.items); let cur=shuffle(items.map((_,i)=>i)); if(cur.every((v,i)=>v===i)) cur.reverse();
+   const draw=()=>{ box.innerHTML=`<div class="opts">${cur.map((it,p)=>`<div class="ord"><span class="n">${p+1}</span><span>${esc(items[it])}</span><button data-up="${p}" aria-label="Monter" ${p===0?"disabled":""}>↑</button><button data-down="${p}" aria-label="Descendre" ${p===cur.length-1?"disabled":""}>↓</button></div>`).join("")}</div>`; };
+   draw(); box.onclick=e=>{ if(RUN.validated) return; const u=e.target.closest("[data-up]"), d=e.target.closest("[data-down]"); if(u){const p=+u.dataset.up; [cur[p-1],cur[p]]=[cur[p],cur[p-1]]; draw();} if(d){const p=+d.dataset.down; [cur[p+1],cur[p]]=[cur[p],cur[p+1]]; draw();} };
+   return ()=>{ const ok=cur.every((v,i)=>v===i); box.querySelectorAll(".ord").forEach((el,p)=>{el.style.borderColor= cur[p]===p?"var(--ok)":"var(--ko)"}); return {ok,lock:true,msg:ok?"":"Le bon ordre : "+items.map((t,i)=>(i+1)+". "+esc(t)).join(" ")}; }; },
+ tri(q,box){ const items=shuffle(q.items.map((it,i)=>[...it,i])); const ans={};
+   box.innerHTML=`<div class="tri">${items.map(([t,,id])=>`<div class="tri-row" data-id="${id}"><span>${esc(t)}</span><div class="cats">${q.cats.map((c,ci)=>`<button data-c="${ci}" aria-pressed="false">${esc(c)}</button>`).join("")}</div></div>`).join("")}</div>`;
+   box.onclick=e=>{const b=e.target.closest("[data-c]"); if(!b||RUN.validated) return; const row=b.closest(".tri-row"); ans[row.dataset.id]=+b.dataset.c; row.querySelectorAll("[data-c]").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));};
+   return ()=>{ if(Object.keys(ans).length<q.items.length) return {incomplete:true,msg:"Classe toutes les situations."}; let bad=0;
+     box.querySelectorAll(".tri-row").forEach(r=>{const id=+r.dataset.id; const good=q.items[id][1]===ans[id]; r.classList.add(good?"good":"bad"); if(!good){bad++; r.querySelector(".cats").insertAdjacentHTML("beforeend",`<span class="small" style="color:var(--ok);font-weight:700">→ ${esc(q.cats[q.items[id][1]])}</span>`);} });
+     return {ok:bad===0,lock:true,msg:bad?`${bad} erreur${bad>1?"s":""} : la bonne réponse est indiquée en vert.`:""}; }; },
+ num(q,box){ box.innerHTML=`<label class="f" for="numin">Ta réponse (${q.unit})<input type="text" id="numin" inputmode="decimal" autocomplete="off"></label>`;
+   return ()=>{ const v=parseFloat(($("#numin").value||"").replace(",",".").replace(/[^\d.]/g,"")); if(isNaN(v)) return {incomplete:true,msg:"Écris un nombre."}; const ok=Math.abs(v-val(q.ok))<0.01; return {ok,lock:true,msg:ok?"":`La bonne réponse est ${String(val(q.ok)).replace(".",",")} ${q.unit}.`}; }; },
+ write(q,box){ const prev=S.writes[q.id]||""; box.innerHTML=`<textarea id="wr" placeholder="${esc(val(q.ph)||"")}">${esc(prev)}</textarea><div class="row" style="justify-content:space-between"><span class="small muted" id="wc"></span><span class="small muted">Minimum ${q.min} mots</span></div>`;
+   const ta=$("#wr"), wc=$("#wc"); const upd=()=>{wc.textContent=words(ta.value)+" mot(s)"; S.writes[q.id]=ta.value; save();}; ta.oninput=upd; upd();
+   return ()=>{ const n=words(ta.value); if(n<q.min) return {incomplete:true,msg:`Ton texte fait ${n} mots. Il en faut au moins ${q.min}.`}; return {ok:true,msg:"Ton texte est enregistré. Ton enseignante le lira."+(q.crit?" Vérifie : "+esc(q.crit):"")}; }; },
+ oral(q,box){ const prev=S.checks[q.id]||[]; box.innerHTML=`<div>${q.items.map((t,i)=>`<label class="check"><input type="checkbox" data-i="${i}" ${prev[i]?"checked":""}><span>${esc(t)}</span></label>`).join("")}</div>
+   <label class="f" for="voc">Lien Vocaroo (facultatif)<small>Sur vocaroo.com : enregistre, puis copie le lien et colle-le ici.</small><input type="text" id="voc" value="${esc(S.writes.vocaroo||"")}" placeholder="https://voca.ro/…" autocomplete="off"></label>
+   <a class="btn ghost" href="https://vocaroo.com" target="_blank" rel="noopener" style="align-self:flex-start">Ouvrir Vocaroo</a>`;
+   const cbs=()=>[...box.querySelectorAll("input[type=checkbox]")];
+   box.onchange=box.oninput=()=>{S.checks[q.id]=cbs().map(x=>x.checked); S.writes.vocaroo=$("#voc").value.trim(); save();};
+   return ()=>{ const n=cbs().filter(x=>x.checked).length; S.checks[q.id]=cbs().map(x=>x.checked); return {ok:n>=q.need,lock:false,msg:`${n} critère${n>1?"s":""} réussi${n>1?"s":""} sur ${q.items.length}.`}; }; },
+ terrain(q,box){ box.innerHTML=`<div>${q.items.map(t=>`<div class="check"><input type="checkbox" disabled aria-label="À cocher en stage"><span>${esc(t)}</span></div>`).join("")}</div><p class="small muted">Ces cases se cochent dans l'entreprise, sur ton kit imprimé.</p>`;
+   return ()=>({ok:true,lock:true,msg:"La check-list est ajoutée à ton kit PFMP."}); },
+ avatar(q,box){ box.innerHTML=`<div class="stack"><div class="grid2"><label class="f" for="av-prenom">Ton prénom<input type="text" id="av-prenom" value="${esc(S.profil.prenom)}" autocomplete="off"></label><label class="f" for="av-classe">Ta classe<input type="text" id="av-classe" value="${esc(S.profil.classe||"1CAP EPC")}" autocomplete="off"></label></div><div id="avb"></div></div>`;
+   avatarBuilder($("#avb"),"full"); S.profil.classe=$("#av-classe").value;
+   $("#av-prenom").oninput=e=>{S.profil.prenom=e.target.value.trim(); save();}; $("#av-classe").oninput=e=>{S.profil.classe=e.target.value.trim(); save();};
+   return ()=>{ if(!S.profil.prenom) return {incomplete:true,msg:"Écris ton prénom."}; save(); return {ok:true,lock:false,msg:"Ton avatar est prêt, "+esc(S.profil.prenom)+"."}; }; },
+ fiche(q,box){
+   let req = RUN.level===1?["entreprise","secteur","ville","activite","tuteur","debut"] : RUN.level===2?["entreprise","secteur","ville","activite","produits","ouverture","tuteur","debut","fin"] : ["entreprise","secteur","ville","adresse","activite","produits","clients","ouverture","tuteur","debut","finMatin","debutAprem","fin"];
+   const reqFor=()=>{ let r=req.slice(); if(F().sansStage){ r=r.filter(k=>!["tuteur","adresse","telephone"].includes(k)); r.push("recherche"); } return r; };
+   const f=F(); const L=(k,lab,sm,type)=>`<label class="f" for="fi-${k}"><span>${lab}${reqFor().includes(k)?' <span class="req">*</span>':""}</span>${sm?`<small>${sm}</small>`:""}<input type="text" id="fi-${k}" data-f="${k}" value="${esc(f[k])}" autocomplete="off" ${type?`placeholder="${type}"`:""}></label>`;
+   let h="";
+   const curSel = f.sansStage ? "aucun" : (ENTREPRISES.findIndex(e=>e.nom===f.entreprise)>=0 ? String(ENTREPRISES.findIndex(e=>e.nom===f.entreprise)) : (f.entreprise?"autre":""));
+   h+=`<label class="f" for="fi-liste">Mon lieu de stage<select id="fi-liste"><option value="">— Choisir —</option>${ENTREPRISES.map((e,i)=>`<option value="${i}" ${curSel===String(i)?"selected":""}>${esc(e.nom)}${e.ville?" · "+esc(e.ville):""}</option>`).join("")}<option value="autre" ${curSel==="autre"?"selected":""}>Autre entreprise (je l'écris)</option><option value="aucun" ${curSel==="aucun"?"selected":""}>Je n'ai pas encore de lieu de stage</option></select></label>
+   <div id="fi-rech" class="stack notice" ${f.sansStage?"":"hidden"}><b>Pas encore de stage ? Pas de souci.</b><span>Remplis la fiche avec un magasin où tu aimerais faire ton stage. Tu la mettras à jour quand tu auras ta convention.</span>
+     <label class="f" for="fi-recherche"><span>Où en est ma recherche ? <span class="req">*</span></span><small>Magasins contactés, CV déposés, rendez-vous, réponses…</small><textarea id="fi-recherche" data-f="recherche" style="min-height:90px">${esc(f.recherche||"")}</textarea></label></div>`;
+   h+=`<div class="grid2">${L("entreprise","Nom de l'entreprise",f.sansStage?"Le magasin où j'aimerais aller":"","ex. Intermarché")}
+     <label class="f" for="fi-secteur"><span>Secteur <span class="req">*</span></span><select id="fi-secteur" data-f="secteur"><option value="">— Choisir —</option>${Object.entries(SECTEURS).map(([k,s])=>`<option value="${k}" ${f.secteur===k?"selected":""}>${s.nom}</option>`).join("")}</select></label>
+     ${L("ville","Ville")}${L("adresse","Adresse")}</div>
+     ${L("activite","Quelle est son activité ?","Ce que fait l'entreprise","ex. vente de produits alimentaires")}
+     ${L("produits","Quels produits vend-elle ?","",SECTEURS[f.secteur]?.ex||"")}
+     ${L("clients","Qui sont les clients ?")}
+     ${L("ouverture","Horaires d'ouverture du magasin","","ex. du lundi au samedi, 8 h 30 – 20 h")}
+     <div class="grid2">${L("tuteur","Mon tuteur ou ma tutrice","Si tu ne sais pas encore, écris « je ne sais pas »","ex. M. Benali")}${L("telephone","Téléphone de l'entreprise")}</div>
+     <h3>Mes horaires de stage</h3><p class="small muted">Écris les heures comme ceci : 8h30. Ils sont sur ta convention de stage.</p>
+     <div class="grid2">${L("debut","Je commence à","","8h30")}${L("finMatin","Pause du midi : de","","12h00")}${L("debutAprem","Je reprends à","","13h30")}${L("fin","Je finis à","","17h00")}</div>
+     <label class="f" for="fi-jours">Nombre de jours par semaine<select id="fi-jours" data-f="jours">${[4,5,6].map(n=>`<option ${String(f.jours)===String(n)?"selected":""}>${n}</option>`).join("")}</select></label>`;
+   box.innerHTML=`<div class="stack">${h}<p class="small muted"><span class="req">*</span> obligatoire à ton niveau.</p></div>`;
+   box.oninput=box.onchange=e=>{const el=e.target; if(el.id==="fi-liste"){ const v=el.value; f.sansStage = v==="aucun"; $("#fi-rech").hidden=!f.sansStage;
+       if(v!==""&&v!=="autre"&&v!=="aucun"){const E=ENTREPRISES[+v]; f.entreprise=E.nom; f.secteur=E.secteur||""; f.ville=E.ville||"";}
+       else if(v==="autre"||v==="aucun"){ if(ENTREPRISES.some(E=>E.nom===f.entreprise)){f.entreprise=""; f.ville="";} }
+       ["entreprise","ville"].forEach(k=>$("#fi-"+k).value=f[k]); $("#fi-secteur").value=f.secteur; $("#fi-entreprise").focus(); } if(el.dataset.f){f[el.dataset.f]=el.value.trim();} save();};
+   return ()=>{ const miss=reqFor().filter(k=>!f[k]); const bad=["debut","finMatin","debutAprem","fin"].filter(k=>f[k]&&parseTime(f[k])==null);
+     if(miss.length) return {incomplete:true,msg:"Il manque : "+miss.map(k=>({entreprise:"le nom",secteur:"le secteur",ville:"la ville",adresse:"l'adresse",activite:"l'activité",produits:"les produits",clients:"les clients",ouverture:"les horaires d'ouverture",tuteur:"le tuteur",debut:"l'heure de début",finMatin:"la pause",debutAprem:"la reprise",fin:"l'heure de fin",recherche:"où en est ta recherche"})[k]).join(", ")+"."};
+     if(bad.length) return {incomplete:true,msg:"Une heure est mal écrite. Écris-la comme ceci : 8h30."};
+     return {ok:true,lock:false,msg:"Ta fiche entreprise est enregistrée. Elle sera dans ton kit PFMP."}; }; },
+ badge(q,box){ box.innerHTML=`<div id="bb"></div>`; badgeBuilder($("#bb")); return ()=>({ok:true,lock:false,msg:"Ton badge est prêt !"}); },
+ dress(q,box){ box.innerHTML=`<div id="avd"></div>`; avatarBuilder($("#avd"),"dress");
+   return ()=>{ const p=dressProblems(S.avatar); return {ok:p.length===0,lock:false,msg:p.length?"<br>• "+p.map(esc).join("<br>• ")+"<br>Corrige ta tenue puis valide à nouveau.":"Ta tenue est parfaite pour le premier jour."}; }; },
+ trajet(q,box){ const t=S.trajet;
+   box.innerHTML=`<div class="stack"><div class="grid2"><label class="f" for="tr-mode">Comment j'y vais<select id="tr-mode"><option value="">— Choisir —</option>${["En bus","En train","En bus + à pied","À pied","À vélo","En voiture (on m'emmène)"].map(m=>`<option ${t.mode===m?"selected":""}>${m}</option>`).join("")}</select></label>
+     <label class="f" for="tr-duree">Durée du trajet (en minutes)<small>Ajoute l'attente du bus et la marche</small><input type="text" id="tr-duree" inputmode="numeric" value="${esc(t.duree)}"></label></div>
+     <div class="notice">Je commence à <b>${fmt(debut())}</b>. Je veux arriver <b>10 minutes</b> en avance.</div>
+     <label class="f" for="tr-dep">À quelle heure dois-je partir de chez moi ?<input type="text" id="tr-dep" placeholder="ex. 7h40" value="${esc(t.depart)}"></label></div>`;
+   box.oninput=box.onchange=()=>{t.mode=$("#tr-mode").value; t.duree=$("#tr-duree").value.trim(); t.depart=$("#tr-dep").value.trim(); save();};
+   return ()=>{ const d=parseInt(t.duree,10), dep=parseTime(t.depart); if(!t.mode||isNaN(d)||d<=0) return {incomplete:true,msg:"Choisis ton moyen de transport et écris la durée en minutes."}; if(dep==null) return {incomplete:true,msg:"Écris ton heure de départ comme ceci : 7h40."};
+     const want=debut()-d-10; const ok=dep===want; return {ok,lock:false,msg:ok?`Tu pars à ${fmt(want)}. Ce trajet est noté dans ton kit.`:`Calcul : ${fmt(debut())} − ${d} min − 10 min = ${fmt(want)}. Corrige ton heure de départ.`}; }; }
+};
+
+
+/* ---------- missions en entreprise (fiche PFMP) ---------- */
+const PFMP_M=[
+ {c:"blue",t:"Je présente mon entreprise",q:["Quel est le nom de l'entreprise ?","Quelle est son activité ?","Quels produits vend-elle ?","Qui sont les clients ?","Quels sont les horaires d'ouverture ?"],r:"Une petite fiche de présentation de mon entreprise.",e:"Étape 1"},
+ {c:"green",t:"J'observe le magasin",q:["Où sont les produits ?","Comment sont rangés les rayons ?","Où sont les promotions ?","Quels affichages vois-je ?"],r:"2 photos si autorisées, ou un dessin et quelques phrases.",e:"Étape 6"},
+ {c:"orange",t:"Je participe à une tâche",q:["La mise en rayon","Le rangement","L'étiquetage","La préparation des produits","L'accueil des clients (selon les possibilités)","Je demande à mon tuteur ce que je peux faire."],r:"Une fiche « Ce que j'ai fait / Comment j'ai fait / Ce que j'ai appris ».",e:"Étapes 5 et 6"},
+ {c:"purple",t:"Je découvre le métier",q:["Que faites-vous dans votre métier ?","Quels outils utilisez-vous ?","Qu'est-ce qui est important dans votre métier ?","Quel conseil pouvez-vous me donner ?"],r:"Les réponses à mes questions et une courte présentation orale de 2 minutes.",e:"Étape 2"}
+];
+function renderMissions(){ $("#pfmp-missions").innerHTML=PFMP_M.map((m,i)=>`<div class="band c-${m.c}"><div class="row"><span class="btn col" style="pointer-events:none;min-height:40px;padding:4px 16px">Mission ${i+1}</span><h3 style="flex:1;min-width:0">${m.t}</h3></div><ul style="margin:0;padding-left:20px" class="stack small">${m.q.map(x=>`<li style="font-size:1rem">${esc(x)}</li>`).join("")}</ul><div class="notice" style="background:var(--surface)"><b>À rapporter :</b> ${esc(m.r)}</div><span class="hand" style="font-size:1.3rem;color:var(--c)">Je m'y prépare : ${m.e}</span></div>`).join(""); }
+/* ---------- changer d'élève ---------- */
+function renderQui(){ const P=profiles().slice().sort((a,b)=>(a.prenom||"").localeCompare(b.prenom||"","fr"));
+  $("#qui-list").innerHTML = P.length ? P.map((p,i)=>{ let av=blank().avatar; try{av=hydrate(JSON.parse(ls.get(KEY+"_"+p.id)||"{}")).avatar}catch(e){}
+    return `<button class="lexcard c-${COL[i%6]}" data-pid="${p.id}" style="${p.id===CUR?"border-color:var(--c)":""};align-items:center;text-align:center"><div style="width:80px">${avatarSVG(av,false)}</div><b>${esc(p.prenom||"(sans prénom)")}</b><span class="small">${esc(p.entreprise||"")}</span><span class="small muted">${p.etapes||0}/6 étapes${p.id===CUR?" · c'est toi":""}</span></button>`; }).join("")
+    : `<p class="muted">Aucun élève sur cet ordinateur pour l'instant.</p>`; }
+$("#qui-list").addEventListener("click",e=>{const b=e.target.closest("[data-pid]"); if(!b) return; RUN=null; openProfile(b.dataset.pid); $("#valise-msg").innerHTML=""; updateWho(); go("accueil");});
+$("#qui-new").onclick=()=>{ closeProfile(); $("#valise-msg").innerHTML=""; updateWho(); go("accueil"); };
+
+/* ---------- lexique ---------- */
+const LEX=[["PFMP","Période de formation en milieu professionnel : le stage en entreprise prévu par ton diplôme."],["Convention de stage","Le contrat signé par le lycée, l'entreprise, ta famille et toi. Il fixe les dates, les horaires et les règles."],["Tuteur ou tutrice","La personne de l'entreprise qui t'accueille, te guide et t'évalue pendant le stage."],["Enseignant référent","Le professeur du lycée qui suit ton stage et vient te rendre visite."],["Savoir-être","Ton attitude au travail : politesse, ponctualité, motivation, respect."],["Ponctualité","Arriver à l'heure, et même un peu en avance."],["EPI","Équipement de protection individuelle : chaussures de sécurité, gants, gilet…"],["Gestes et postures","Les bonnes positions pour porter ou se baisser sans se faire mal au dos."],["SST","Sauveteur secouriste du travail : un salarié formé aux premiers secours."],["Rendre compte","Dire à son tuteur ce qu'on a fait, ce qui est fini et ce qui reste."],["Consigne","Ce qu'on te demande de faire, et comment le faire."],["Tête de gondole","Le bout d'un rayon, face à l'allée, où l'on met souvent les promotions."],["PLV","Publicité sur le lieu de vente : affiches, présentoirs, stop-rayons."],["DLC","Date limite de consommation : après cette date, le produit ne se vend plus."],["FIFO","Premier entré, premier sorti : on vend d'abord les produits les plus anciens."],["Activité de l'entreprise","Ce que fait l'entreprise : ce qu'elle vend ou le service qu'elle rend."],["Enseigne","Le nom commercial du magasin, celui que voient les clients."],["Raison sociale","Le nom officiel de l'entreprise, écrit sur la convention (ex. SAS Macellum)."],["Facing","Avancer et aligner les produits au bord du rayon pour qu'il paraisse plein et rangé."],["Linéaire","La longueur de rayon où sont présentés les produits, en mètres."],["Drive","Le client commande en ligne et vient chercher ses courses au magasin."],["Autonomie","Savoir faire une tâche seul(e), sans qu'on te le redise à chaque fois."]];
+let LQ=null;
+function lqBest(){ const b=S.lexQuiz; $("#lq-best").textContent = b ? `Mon meilleur score : ${b.best}/10` : ""; }
+function lqStart(){ const pool=shuffle(LEX.map((_,i)=>i)).slice(0,10); LQ={list:pool,k:0,score:0}; lqShow(); }
+function lqShow(){ const i=LQ.list[LQ.k], [w,d]=LEX[i]; const opts=shuffle([i,...shuffle(LEX.map((_,j)=>j).filter(j=>j!==i)).slice(0,3)]);
+  $("#lq-body").innerHTML=`<div class="progress"><i style="width:${(LQ.k+1)*10}%"></i></div><p class="eyebrow">Question ${LQ.k+1} sur 10</p><p class="qtext">${esc(d)}</p><div class="opts">${opts.map((j,p)=>`<button class="opt" data-j="${j}"><span class="box">${"ABCD"[p]}</span><span>${esc(LEX[j][0])}</span></button>`).join("")}</div><div id="lq-fb"></div>`;
+  $("#lq-body").querySelectorAll(".opt").forEach(b=>b.onclick=()=>{ if(LQ.done) return; LQ.done=true; const j=+b.dataset.j, ok=j===i; if(ok) LQ.score++;
+    $("#lq-body").querySelectorAll(".opt").forEach(x=>{const jj=+x.dataset.j; if(jj===i) x.classList.add("good"); else if(x===b) x.classList.add("bad");});
+    $("#lq-fb").innerHTML=`<div class="fb ${ok?"ok":"ko"}"><b>${ok?"Bravo !":"Pas tout à fait."}</b><span>${esc(w)} : ${esc(d)}</span></div><div class="row" style="justify-content:flex-end;margin-top:10px"><button class="btn col" id="lq-next">${LQ.k<9?"Suivante":"Voir mon score"}</button></div>`;
+    $("#lq-next").onclick=()=>{ LQ.done=false; LQ.k++; if(LQ.k<10) lqShow(); else lqEnd(); }; }); }
+function lqEnd(){ const sc=LQ.score; const prev=S.lexQuiz||{best:0,essais:0}; S.lexQuiz={best:Math.max(prev.best,sc),dernier:sc,essais:(prev.essais||0)+1}; save(); lqBest();
+  $("#lq-body").innerHTML=`<div class="stack" style="align-items:center;text-align:center"><div class="bigdigit" style="width:auto;padding:0 18px;font-size:3rem">${sc}/10</div><p>${sc>=8?"Excellent, tu parles comme un pro !":sc>=5?"C'est bien. Révise les cartes et retente ta chance.":"Révise les cartes ci-dessous, puis recommence."}</p><button class="btn col" id="lq-again">Recommencer</button></div>`;
+  $("#lq-again").onclick=lqStart; }
+$("#lq-start").onclick=lqStart;
+function renderLex(){ lqBest(); const n=LEX.filter(([w])=>S.lex[w]).length; $("#lex-count").textContent=n+" / "+LEX.length;
+  $("#lex").innerHTML=LEX.map(([w,d],i)=>`<div class="lexcard c-${COL[i%6]} ${S.lex[w]?"known":""}"><button class="say" style="align-self:flex-start" data-lx="${i}">Voir la définition</button><b>${esc(w)}</b><p class="small" id="lx-${i}" hidden>${esc(d)}</p><label class="row small"><input type="checkbox" data-lk="${esc(w)}" ${S.lex[w]?"checked":""} style="width:20px;height:20px;accent-color:var(--ok)"> Je sais l'expliquer</label></div>`).join(""); }
+$("#lex").addEventListener("click",e=>{const b=e.target.closest("[data-lx]"); if(b){const p=$("#lx-"+b.dataset.lx); p.hidden=!p.hidden; b.textContent=p.hidden?"Voir la définition":"Cacher"; if(!p.hidden) speak(LEX[+b.dataset.lx].join(". "));}});
+$("#lex").addEventListener("change",e=>{const c=e.target.closest("[data-lk]"); if(c){S.lex[c.dataset.lk]=c.checked; save(); renderLex();}});
+
+/* ---------- valise ---------- */
+function renderValise(){ $("#case-name").textContent=(S.profil.prenom||"stagiaire").toUpperCase();
+  const lock=$("#lock"); if(!lock.children.length){ lock.innerHTML=Array.from({length:CODE_VALISE.length},(_,i)=>`<input type="text" inputmode="numeric" maxlength="1" id="d${i}" aria-label="Chiffre ${i+1}">`).join("");
+    lock.addEventListener("input",e=>{const t=e.target; t.value=t.value.replace(/\D/g,"").slice(0,1); if(t.value&&t.nextElementSibling) t.nextElementSibling.focus();});
+    lock.addEventListener("keydown",e=>{if(e.key==="Backspace"&&!e.target.value&&e.target.previousElementSibling) e.target.previousElementSibling.focus();}); }
+  if(S.valise) showOpen(); }
+function showOpen(){ $("#valise-msg").innerHTML=`<div class="qcard" style="align-items:center;text-align:center;max-width:520px">${badgeHTML(true)}<h2>Prêt(e) pour la PFMP !</h2><p>Bravo ${esc(S.profil.prenom||"")} ! Voici ton badge de stagiaire. Rendez-vous le <b>lundi 1<sup>er</sup> février 2027</b>${F().entreprise?" chez <b>"+esc(F().entreprise)+"</b>":""}.</p><button class="btn gold" data-go="bilan">Imprimer mon kit PFMP</button></div>`; }
+$("#unlock").onclick=()=>{ const c=[...$("#lock").querySelectorAll("input")].map(i=>i.value).join("");
+  if(c===CODE_VALISE){ S.valise=true; save(); showOpen(); speak("Bravo ! La valise est ouverte. Tu es prêt pour ta PFMP."); }
+  else $("#valise-msg").innerHTML=`<div class="fb ko"><b>Le cadenas reste fermé.</b><span>Vérifie tes chiffres dans « Mes étapes », dans l'ordre de 1 à 6.</span></div>`; };
+
+/* ---------- bilan et kit ---------- */
+const COMP=[["c1","Je présente mon entreprise (activité, produits, clients, horaires)"],["c2","Je me présente à mon tuteur de façon professionnelle"],["c3","Je prépare mon premier jour (tenue, documents, trajet, horaires)"],["c4","Je repère les règles de sécurité et les gestes et postures"],["c5","J'adopte une attitude professionnelle"],["c6","J'observe le magasin et je raconte une tâche"]];
+const AE=["Je découvre","Avec aide","Seul(e)"];
+function renderBilan(){
+  $("#bilan-table").innerHTML=`<thead><tr><th>Étape</th><th>Niveau</th><th>Score</th><th>Date</th></tr></thead><tbody>${M.map((m,i)=>{const r=S.missions[m.id]; return `<tr><td>${i+1}. ${m.titre}</td><td>${r&&r.done?LV[r.stars].nom:"—"}</td><td>${r?r.score+" / "+r.total:"—"}</td><td>${r?r.date:"—"}</td></tr>`;}).join("")}</tbody>`;
+  $("#ae-table").innerHTML=`<thead><tr><th>Compétence</th>${AE.map(a=>`<th>${a}</th>`).join("")}</tr></thead><tbody>${COMP.map(([k,l])=>`<tr><td>${l}</td>${AE.map((_,j)=>`<td><input type="radio" name="ae-${k}" data-ae="${k}" value="${j}" ${S.ae[k]===j?"checked":""} aria-label="${AE[j]}"></td>`).join("")}</tr>`).join("")}</tbody>`;
+  renderKit();
+  if(DIGIPAD_URL){ $("#btn-digipad").href=DIGIPAD_URL; $("#btn-digipad").hidden=false; }
+}
+$("#ae-table").addEventListener("change",e=>{const r=e.target.closest("[data-ae]"); if(r){S.ae[r.dataset.ae]=+r.value; save();}});
+function renderKit(){ const f=F(), h=heuresJour(), t=S.trajet, terr=M[3].qs.find(q=>q.id==="m3d");
+  const dl=(pairs)=>`<dl>${pairs.map(([a,b])=>`<dt>${a}</dt><dd>${b?esc(b):'<span class="muted">à compléter</span>'}</dd>`).join("")}</dl>`;
+  $("#kit").innerHTML=`<div class="row" style="justify-content:space-between;align-items:flex-start"><div class="stack" style="gap:2px"><span class="eyebrow">Mon kit PFMP · du 01/02/2027 au 20/02/2027</span><h2>${esc(S.profil.prenom||"Prénom")} · ${esc(S.profil.classe||"1CAP EPC")}</h2><span class="muted">Lycée Jean Hanzelet · Pont-à-Mousson · Mme Frison</span></div><div style="width:110px">${avatarSVG(S.avatar,S.valise)}</div></div>
+   <section class="c-blue" style="align-items:center"><h3>Mon badge de stagiaire</h3>${badgeHTML(true)}</section>
+   <section class="c-blue"><h3>Mission 1 · Mon entreprise</h3>${dl([["Entreprise",f.entreprise],["Secteur",SECTEURS[f.secteur]?.nom],["Adresse",[f.adresse,f.ville].filter(Boolean).join(", ")],["Activité",f.activite],["Produits",f.produits],["Clients",f.clients],["Ouverture",f.ouverture],["Tuteur / tutrice",f.tuteur],["Téléphone",f.telephone]])}${S.writes.m0g?`<p><b>Ma présentation :</b> ${esc(S.writes.m0g)}</p>`:""}</section>
+   <section class="c-green"><h3>Mon premier jour</h3>${dl([["Mes horaires",h.perso?h.txt:(f.debut?"Début "+f.debut+(f.fin?", fin "+f.fin:""):"")],["Jours par semaine",f.jours],["Trajet",t.mode?(t.mode+", "+t.duree+" min"):""],["Je pars de chez moi à",t.depart],["Si je suis en retard","J'appelle l'entreprise avant l'heure, puis le lycée."]])}</section>
+   <section class="c-pink"><h3>Ce que je dis à mon tuteur</h3><p>${S.writes.m1g?esc(S.writes.m1g):esc(salut()+". Je m'appelle "+(S.profil.prenom||"…")+", je suis en 1re année de CAP Équipier polyvalent du commerce au lycée Jean Hanzelet. Je suis en stage chez vous du 1er au 20 février 2027. J'aimerais apprendre à mettre en rayon et à accueillir les clients. Merci de m'accueillir.")}</p></section>
+   <section class="c-orange"><h3>Sécurité · à vérifier la première semaine</h3>${terr.items.map(i=>`<div class="check"><input type="checkbox" aria-label="${esc(i)}"><span>${esc(i)}</span></div>`).join("")}</section>
+   <section class="c-green"><h3>Mission 2 · J'observe le magasin</h3>${["Où sont les produits ?","Comment sont rangés les rayons ?","Où sont les promotions ?","Quels affichages vois-je ?"].map(qq=>`<p><b>${qq}</b></p><div class="lines"></div>`).join("")}<p><b>Mes 2 photos (si autorisées) ou mon dessin :</b></p><div style="border:2px dashed var(--muted);border-radius:12px;height:170px"></div></section>
+   <section class="c-orange"><h3>Mission 3 · Je participe à une tâche</h3><p class="small">Je demande à mon tuteur ce que je peux faire. Je coche la tâche choisie :</p>${["La mise en rayon","Le rangement","L'étiquetage","La préparation des produits","L'accueil des clients"].map(t=>`<div class="check"><input type="checkbox" aria-label="${t}"><span>${t}</span></div>`).join("")}${["Ce que j'ai fait","Comment j'ai fait","Ce que j'ai appris"].map(t=>`<p><b>${t} :</b></p><div class="lines"></div><div class="lines"></div>`).join("")}</section>
+   <section class="c-purple"><h3>Mission 4 · Je découvre le métier</h3><p class="small">Je pose mes questions au tuteur, puis je prépare une courte présentation orale de 2 minutes.</p>${["Que faites-vous dans votre métier ?","Quels outils utilisez-vous ?","Qu'est-ce qui est important dans votre métier ?","Quel conseil pouvez-vous me donner ?"].map((qq,i)=>`<p><b>${i+1}. ${qq}</b></p><div class="lines"></div>`).join("")}${S.writes.m1i?`<p><b>5. Ma question :</b> ${esc(S.writes.m1i)}</p><div class="lines"></div>`:""}</section>
+   <section class="c-teal"><h3>À noter pendant le stage · pour mon interview au retour</h3><p class="small muted">Au lycée, tu raconteras ta PFMP en 3 à 5 minutes sur Vocaroo. Note les réponses au fil des jours.</p>${["Combien de personnes travaillent dans l'entreprise ?","Quelles tâches ai-je réalisées ?","Quelle activité ai-je préférée ? Laquelle était difficile ?","Avec qui ai-je travaillé ? Comment est l'ambiance ?","Quelles qualités sont importantes dans ce métier ?","Qu'est-ce que j'ai appris ? Que ferais-je différemment ?"].map(qq=>`<p><b>${qq}</b></p><div class="lines"></div>`).join("")}</section>
+   <section class="c-green"><h3>Rappel</h3><p>Je demande avant de prendre une photo. Je respecte les clients et l'entreprise. Je note ce que je fais. Si je ne comprends pas, je demande de l'aide.</p></section>`; }
+function download(name, text, mime, fbBox){
+  let ok=false; try{ const b=new Blob([text],{type:mime}); const u=URL.createObjectURL(b); const a=document.createElement("a"); a.href=u; a.download=name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(u),2000); ok=true; }catch(e){}
+  if(inFrame||!ok){ fbBox.innerHTML=`<div class="copybox notice"><span>Si le téléchargement ne démarre pas, copie ce texte et colle-le dans un fichier nommé <b>${esc(name)}</b>.</span><textarea readonly id="fb-ta">${esc(text)}</textarea><button class="btn ghost" id="fb-copy">Copier</button></div>`;
+    $("#fb-copy",fbBox).onclick=()=>{const ta=$("#fb-ta",fbBox); navigator.clipboard?.writeText(ta.value).then(()=>{$("#fb-copy",fbBox).textContent="Copié";}).catch(()=>{ta.select();});}; } }
+const slug=s=>(s||"eleve").normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-zA-Z0-9]+/g,"_").toLowerCase();
+$("#btn-save").onclick=()=>download(`sauvegarde_pfmp_${slug(S.profil.prenom)}.json`, JSON.stringify(Object.assign({app:"pfmp_cap_epc",version:1},S),null,1),"application/json",$("#save-fallback"));
+$("#load-file").onchange=e=>{const file=e.target.files[0]; if(!file) return; const r=new FileReader(); r.onload=()=>{try{const d=JSON.parse(r.result); if(d.app!=="pfmp_cap_epc") throw 0; delete d.app; delete d.version; S=hydrate(d); save(); renderBilan(); $("#save-fallback").innerHTML=`<div class="fb ok"><b>Sauvegarde chargée.</b><span>Tu peux reprendre où tu en étais.</span></div>`;}catch(err){$("#save-fallback").innerHTML=`<div class="fb ko"><b>Ce fichier n'est pas une sauvegarde de ce jeu.</b><span>Choisis le fichier sauvegarde_pfmp_….json.</span></div>`;}}; r.readAsText(file); };
+$("#btn-print").onclick=()=>{ if(inFrame){ $("#save-fallback").innerHTML=`<div class="notice">L'impression fonctionne sur le site de la classe. Ici, en aperçu, elle est bloquée.</div>`; } try{window.print()}catch(e){} };
+function resetIdle(){ $("#reset-zone").innerHTML=`<button class="btn ghost" id="btn-reset">Tout recommencer</button>`; $("#btn-reset").onclick=resetAsk; }
+function resetAsk(){ $("#reset-zone").innerHTML=`<span>Effacer tout ton travail sur cet ordinateur ?</span><button class="btn danger" id="rz-yes">Oui, tout effacer</button><button class="btn ghost" id="rz-no">Annuler</button>`;
+  $("#rz-yes").onclick=()=>{ if(CUR) deleteProfile(CUR); else closeProfile(); updateWho(); $("#valise-msg").innerHTML=""; go("accueil"); resetIdle();}; $("#rz-no").onclick=resetIdle; }
+resetIdle();
+
+/* ---------- espace enseignant ---------- */
+let TEACH=false, CLASS=[];
+function renderTeacher(){ $("#t-login").hidden=TEACH; $("#t-panel").hidden=!TEACH; if(TEACH){ renderCorrige(); renderPoste(); } }
+$("#t-go").onclick=()=>{ if($("#t-pass").value.trim().toUpperCase()===CODE_ENSEIGNANT){TEACH=true; $("#t-err").textContent=""; renderTeacher();} else $("#t-err").textContent="Code incorrect."; };
+$("#t-pass").onkeydown=e=>{if(e.key==="Enter") $("#t-go").click();};
+$("#t-tabs").onclick=e=>{const b=e.target.closest("[data-t]"); if(!b) return; ["suivi","corrige","poste","reglages"].forEach(k=>$("#t-"+k).hidden=k!==b.dataset.t); $("#t-tabs").querySelectorAll("[data-t]").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));};
+function answerText(q0){ const q=resolveQ(q0);
+  switch(q.type){
+    case "qcm": { const o=typeof q.opts==="function"?null:q.opts; return o?o[q.ok]:"La 1re réponse (personnalisée avec la fiche de l'élève) : saluer, se nommer, dire pourquoi on vient / prévenir le tuteur."; }
+    case "multi": return q.opts.filter((_,i)=>q.ok.includes(i)).join(" · ");
+    case "order": { try{return q.items().map((t,i)=>(i+1)+". "+t).join("  ")}catch(e){return ""} }
+    case "tri": return q.items.map(([t,c])=>`${t} → ${q.cats[c]}`).join(" · ");
+    case "num": return "Calculé à partir des horaires de l'élève (exemple : 7 h × 5 jours = 35 h).";
+    case "trajet": return "Heure de début − durée du trajet − 10 min.";
+    case "dress": return "Pas de casquette ni d'écouteurs, pas de sweat à capuche, pas de short ni de jogging, chaussures fermées. Alimentaire : cheveux attachés, pas de bijoux. Jardinerie / animalerie : chaussures de sécurité.";
+    case "write": return "Réponse libre (minimum "+q.min+" mots). Critères : "+(q.crit||"");
+    case "oral": return "Grille de jeu de rôle : au moins "+q.need+" critères sur "+q.items.length+".";
+    case "terrain": return "Check-list non notée, à compléter en entreprise.";
+    case "avatar": return "Non noté : prénom obligatoire.";
+    case "fiche": return "Non noté : champs obligatoires selon le niveau.";
+  } return ""; }
+function renderCorrige(){ const sec=Object.entries(SECTOR_Q).map(([k,d])=>`<li>${SECTEURS[k].nom} : ${esc(d.opts[0])}</li>`).join("");
+  $("#t-corrige").innerHTML=M.map((m,i)=>`<div class="card stack"><h3>Étape ${i+1} · ${m.titre} · chiffre ${m.digit}</h3><div class="tbl"><table><thead><tr><th>Niveau</th><th>Question</th><th>Réponse attendue</th></tr></thead><tbody>${m.qs.map(q=>{let txt; if(q.type==="sector") txt="Question selon le secteur de l'élève."; else { try{txt=val(q.q)}catch(e){txt=""} } return `<tr><td>${LV[q.lv].nom}</td><td>${esc(txt)}</td><td>${q.type==="sector"?`<ul style="margin:0;padding-left:18px">${sec}</ul>`:esc(answerText(q))}</td></tr>`;}).join("")}</tbody></table></div></div>`).join("")+`<div class="card"><b>Code de la valise : ${CODE_VALISE}</b> (1<sup>er</sup> février 2027, premier jour de PFMP).</div>`; }
+function confirmBtn(btn,label,act){ if(btn.dataset.arm){ act(); return; } btn.dataset.arm="1"; btn.textContent=label; btn.classList.add("danger"); setTimeout(()=>{ if(btn.isConnected){ delete btn.dataset.arm; btn.textContent=btn.dataset.lab; btn.classList.remove("danger"); } },4000); }
+function renderPoste(){ const P=profiles().slice().sort((a,b)=>(a.prenom||"").localeCompare(b.prenom||"","fr"));
+  $("#t-poste-list").innerHTML = P.length ? `<table><thead><tr><th>Élève</th><th>Entreprise</th><th>Étapes</th><th>Dernière activité</th><th></th></tr></thead><tbody>${P.map(p=>`<tr><td>${esc(p.prenom||"(sans prénom)")}</td><td>${esc(p.entreprise||"—")}</td><td>${p.etapes||0}/6</td><td>${p.maj?new Date(p.maj).toLocaleString("fr-FR"):"—"}</td><td><button class="btn ghost" style="min-height:36px;padding:4px 14px" data-del="${p.id}" data-lab="Supprimer">Supprimer</button></td></tr>`).join("")}</tbody></table>` : `<p class="muted">Aucun élève enregistré sur cet ordinateur.</p>`;
+  $("#t-poste-all").innerHTML = P.length ? `<button class="btn ghost" id="t-del-all" data-lab="Supprimer tous les élèves de cet ordinateur">Supprimer tous les élèves de cet ordinateur</button>` : "";
+  const all=$("#t-del-all"); if(all) all.onclick=()=>confirmBtn(all,"Cliquez encore pour tout supprimer",()=>{ profiles().forEach(p=>ls.del(KEY+"_"+p.id)); setProfiles([]); closeProfile(); updateWho(); renderPoste(); }); }
+$("#t-poste-list").addEventListener("click",e=>{const b=e.target.closest("[data-del]"); if(!b) return; confirmBtn(b,"Confirmer",()=>{ deleteProfile(b.dataset.del); updateWho(); renderPoste(); });});
+$("#t-table").addEventListener("click",e=>{const b=e.target.closest("[data-cdel]"); if(b){ CLASS.splice(+b.dataset.cdel,1); renderClass(); } const v=e.target.closest("#t-clear"); if(v) confirmBtn(v,"Cliquez encore pour vider",()=>{ CLASS=[]; $("#t-files").value=""; renderClass(); }); });
+$("#t-files").onchange=async e=>{ CLASS=[]; for(const f of e.target.files){ try{const d=JSON.parse(await f.text()); if(d.app==="pfmp_cap_epc") CLASS.push(d);}catch(err){} }
+  CLASS.sort((a,b)=>(a.profil?.prenom||"").localeCompare(b.profil?.prenom||"","fr")); renderClass(); };
+function renderClass(){ $("#t-csv").disabled=$("#t-csv-ent").disabled=!CLASS.length;
+  if(!CLASS.length){ $("#t-table").innerHTML=`<p class="muted">Aucune sauvegarde valide importée.</p>`; return; }
+  $("#t-table").innerHTML=`<table><thead><tr><th></th><th>Élève</th><th>Entreprise</th>${M.map((m,i)=>`<th>É${i+1}</th>`).join("")}<th>Quiz mots</th><th>Valise</th></tr></thead><tbody>${CLASS.map((d,ci)=>`<tr><td><button class="say" data-cdel="${ci}" aria-label="Retirer ${esc(d.profil?.prenom)} du tableau">Retirer</button></td><td>${esc(d.profil?.prenom)}</td><td>${d.fiche?.sansStage?'<b style="color:var(--ko)">Pas encore de stage</b><br>':""}${esc(d.fiche?.entreprise)}<br><span class="small muted">${esc(SECTEURS[d.fiche?.secteur]?.nom||"")}</span></td>${M.map(m=>{const r=d.missions?.[m.id]; return `<td>${r?(r.done?`<b style="color:var(--ok)">${LV[r.stars].nom}</b>`:`<span style="color:var(--ko)">à refaire</span>`)+`<br><span class="small">${r.score}/${r.total}</span>`:"—"}</td>`;}).join("")}<td>${d.lexQuiz?d.lexQuiz.best+"/10":"—"}</td><td>${d.valise?"Ouverte":"—"}</td></tr>`).join("")}</tbody></table>`+`<div class="row" style="margin-top:10px"><button class="btn ghost" id="t-clear" data-lab="Vider le tableau">Vider le tableau</button></div>`;
+  const wq=M.flatMap(m=>m.qs.filter(q=>q.type==="write"));
+  $("#t-fiches").innerHTML=CLASS.map(d=>{const f=d.fiche||{}; return `<details class="card"><summary><b>${esc(d.profil?.prenom)}</b> · ${esc(f.entreprise||"entreprise non renseignée")}</summary><div class="stack" style="margin-top:12px"><div class="row" style="align-items:flex-start;gap:16px"><div style="width:90px">${avatarSVG(Object.assign(blank().avatar,d.avatar),d.valise)}</div><div style="flex:1;min-width:0" class="small">${[["Stage",f.sansStage?"Pas encore trouvé":"Trouvé"],["Recherche",f.recherche],["Secteur",SECTEURS[f.secteur]?.nom],["Ville",f.ville],["Adresse",f.adresse],["Activité",f.activite],["Produits",f.produits],["Clients",f.clients],["Ouverture",f.ouverture],["Tuteur",f.tuteur],["Téléphone",f.telephone],["Horaires",[f.debut,f.finMatin,f.debutAprem,f.fin].filter(Boolean).join(" / ")],["Trajet",d.trajet?.mode?d.trajet.mode+", "+d.trajet.duree+" min, départ "+d.trajet.depart:""],["Oral Vocaroo",d.writes?.vocaroo]].map(([a,b])=>`<div><b>${a} :</b> ${esc(b||"—")}</div>`).join("")}</div></div>${wq.filter(q=>d.writes?.[q.id]).map(q=>`<div><b class="small">${esc(String(val(q.q)).replace(/ton entreprise/g,"l'entreprise"))}</b><p>${esc(d.writes[q.id])}</p></div>`).join("")||'<p class="muted small">Aucun écrit pour le moment.</p>'}</div></details>`;}).join(""); }
+const csvCell=v=>`"${String(v??"").replace(/"/g,'""').replace(/\r?\n/g," ")}"`;
+$("#t-csv").onclick=()=>{ const wq=M.flatMap(m=>m.qs.filter(q=>q.type==="write"));
+  const head=["Prénom","Classe","Stage trouvé","Recherche de stage","Entreprise","Secteur","Ville","Tuteur",...M.flatMap((m,i)=>[`É${i+1} niveau`,`É${i+1} score`]),"Quiz mots du pro (meilleur)","Valise",...COMP.map(([,l])=>l),...wq.map(q=>"Écrit "+q.id),"Mise à jour"];
+  const rows=CLASS.map(d=>[d.profil?.prenom,d.profil?.classe,d.fiche?.sansStage?"non":"oui",d.fiche?.recherche||"",d.fiche?.entreprise,SECTEURS[d.fiche?.secteur]?.nom,d.fiche?.ville,d.fiche?.tuteur,...M.flatMap(m=>{const r=d.missions?.[m.id]; return [r&&r.done?LV[r.stars].nom:(r?"à refaire":""), r?r.score+"/"+r.total:""];}),d.lexQuiz?d.lexQuiz.best+"/10":"",d.valise?"oui":"non",...COMP.map(([k])=>d.ae?.[k]!=null?AE[d.ae[k]]:""),...wq.map(q=>d.writes?.[q.id]||""),d.maj?new Date(d.maj).toLocaleString("fr-FR"):""]);
+  download("suivi_pfmp_1cap.csv","﻿"+[head,...rows].map(r=>r.map(csvCell).join(";")).join("\r\n"),"text/csv;charset=utf-8",$("#t-fallback")); };
+$("#t-csv-ent").onclick=()=>{ const head=["Élève","Entreprise","Secteur","Adresse","Ville","Téléphone","Tuteur","Horaires d'ouverture","Horaires de stage"];
+  const rows=CLASS.map(d=>{const f=d.fiche||{}; return [d.profil?.prenom,f.entreprise,SECTEURS[f.secteur]?.nom,f.adresse,f.ville,f.telephone,f.tuteur,f.ouverture,[f.debut,f.finMatin,f.debutAprem,f.fin].filter(Boolean).join(" / ")];});
+  download("lieux_pfmp_1cap.csv","﻿"+[head,...rows].map(r=>r.map(csvCell).join(";")).join("\r\n"),"text/csv;charset=utf-8",$("#t-fallback")); };
+
+/* ---------- démarrage ---------- */
+updateWho();
+go(!CUR && profiles().length ? "qui" : (location.hash.slice(1)||"accueil"));
+</script>
+
+</body>
+</html>
